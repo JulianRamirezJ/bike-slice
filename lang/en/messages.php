@@ -9,5 +9,8 @@ return [
     */
     'bike_slice' => 'Bike Slice',
     'welcome' => 'Welcome to Bike Slice',
-    'welcome_usr' => 'Welcome User'
+    'welcome_usr' => 'Welcome User',
+    'login' => 'Login',
+    'resgister' => 'Register',
+    'logout' => 'Logout',
 ];
