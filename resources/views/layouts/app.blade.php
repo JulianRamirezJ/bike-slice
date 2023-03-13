@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
-  <title>@yield('title', 'Online Store')</title>
+  <title>@yield('title', __('messages.bike_slice'))</title>
 </head>
 <body>
 <!-- header -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
     <div class="container">
-      <a class="navbar-brand" href="{{ route('home') }}">Online Store</a>
+      <a class="navbar-brand" href="{{ route('home') }}">{{ __('messages.bike_slice') }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
 
   <header class="masthead bg-primary text-white text-center py-4">
     <div class="container d-flex align-items-center flex-columnx|">
-      <h2>@yield('subtitle', 'Basic layout')</h2>
+      <h2>@yield('subtitle',  __('messages.welcome') )</h2>
     </div>
   </header>
   <!-- header -->

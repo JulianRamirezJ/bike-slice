@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    Welcome to the User ......!
+    {{ __('messages.welcome_usr') }}
 </div>
 @endsection
