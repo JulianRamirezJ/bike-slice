@@ -10,7 +10,8 @@ class Item extends Model
      * ITEM ATTRIBUTES
      * $this->attributes['id'] - int - contains the Item PK
      * $this->attributes['quantity'] - int - contains the quantity of bikes
-     * 
+     * $this->attributes['created_at'] - string - contains date of creation
+     * $this->attributes['updated_at '] - string - contains date of last modification
      */
 
      protected $fillable = ['id', 'quantity'];
@@ -18,11 +19,6 @@ class Item extends Model
      public function getId(): int
      {
          return $this->attributes['id'];
-     }
- 
-     public function setId(int $id): void
-     {
-         $this->attributes['id'] = $id;
      }
 
      public function getQuantity(): int
@@ -34,4 +30,5 @@ class Item extends Model
      {
          $this->attributes['quantity'] = $quantity;
      }
+
 }

@@ -17,7 +17,8 @@ class Bike extends Model
      * $this->attributes['brand'] - string - contains the brand of the bike 
      * $this->attributes['description'] - string - contains a description of the bike
      * $this->attributes['image'] - string - contains name of the bikes image
-     * 
+     * $this->attributes['created_at'] - string - contains date of creation
+     * $this->attributes['updated_at '] - string - contains date of last modification
      */
 
      protected $fillable = ['id', 'price', 'image', 'name', 'stock', 'shareable', 'type', 'brand', 'description'];
@@ -25,11 +26,6 @@ class Bike extends Model
      public function getId(): int
      {
          return $this->attributes['id'];
-     }
- 
-     public function setId(int $id): void
-     {
-         $this->attributes['id'] = $id;
      }
 
      public function getName(): string
@@ -110,5 +106,15 @@ class Bike extends Model
      public function setImage(string $image): void
      {
          $this->attributes['image'] = $image;
+     }
+
+     public function getCreatedAt(): string
+     {
+         return $this->attributes['created_at']
+     }
+
+     public function getUpdatedAt(): string
+     {
+         return $this->attributes['updated_at']
      }
 }
