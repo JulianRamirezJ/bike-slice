@@ -14,6 +14,8 @@ class Order extends Model
      * $this->attributes['status'] - string - contains the Order Status
      * $this->attributes['address'] - string - contains the Order Address
      * $this->attributes['place_date'] - date - contains the Order Place_date
+     * $this->attributes['created_at'] - string - contains date of creation
+     * $this->attributes['updated_at '] - string - contains date of last modification
      */
 
     protected $fillable = ['total', 'status', 'address', 'place_date'];
@@ -57,5 +59,13 @@ class Order extends Model
     public function setPlaceDate(string $place_date): void
     {
         $this->attributes['place_date'] = $place_date;
+    }
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
     }
 }

@@ -21,7 +21,7 @@ class Bike extends Model
      * $this->attributes['updated_at '] - string - contains date of last modification
      */
 
-     protected $fillable = ['id', 'price', 'image', 'name', 'stock', 'shareable', 'type', 'brand', 'description'];
+     protected $fillable = ['price', 'image', 'name', 'stock', 'shareable', 'type', 'brand', 'description'];
 
      public function getId(): int
      {
@@ -110,11 +110,11 @@ class Bike extends Model
 
      public function getCreatedAt(): string
      {
-         return $this->attributes['created_at']
+         return $this->attributes['created_at'];
      }
 
      public function getUpdatedAt(): string
      {
-         return $this->attributes['updated_at']
+         return $this->attributes['updated_at'];
      }
 }

@@ -15,6 +15,8 @@ class Part extends Model
      * $this->attributes['type'] - string - contains the Part Type
      * $this->attributes['img'] - string - contains the Part Img
      * $this->attributes['brand'] - string - contains the Part Brand
+     * $this->attributes['created_at'] - string - contains date of creation
+     * $this->attributes['updated_at '] - string - contains date of last modification
      */
 
     protected $fillable = ['stock', 'price', 'name', 'type', 'img', 'brand'];
@@ -74,5 +76,13 @@ class Part extends Model
     public function setBrand(string $brand): void
     {
         $this->attributes['brand'] = $brand;
+    }
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
     }
 }

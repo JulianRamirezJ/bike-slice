@@ -9,6 +9,8 @@ class Assembly extends Model
     /**
      * ASSEMBLY ATTRIBUTES
      * $this->attributes['id'] - int - contains the Assembly PK
+     * $this->attributes['created_at'] - string - contains date of creation
+     * $this->attributes['updated_at '] - string - contains date of last modification
      */
 
     protected $fillable = [];
