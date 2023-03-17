@@ -12,7 +12,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
-Route::get('/home', 'App\Http\Controllers\HomeController@homeIndex')->name('home.index');
 
+//Public Routes
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
+
+//Admin Routes
+Route::middleware(['auth.role:admin'])->group(function () {
+    //Put all admin routes with prefix /admin
+    Route::get('/admin', 'App\Http\Controllers\Admin\AdminController@index')->name('admin.index');
+});
+
+//Auth routes
 Auth::routes();
