@@ -14,7 +14,7 @@ class Item extends Model
      * $this->attributes['updated_at '] - string - contains date of last modification
      */
 
-     protected $fillable = ['id', 'quantity'];
+     protected $fillable = ['quantity'];
 
      public function getId(): int
      {

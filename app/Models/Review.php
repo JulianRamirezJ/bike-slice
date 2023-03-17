@@ -15,7 +15,7 @@ class Review extends Model
      * $this->attributes['updated_at '] - string - contains date of last modification
      */
 
-     protected $fillable = ['id', 'stars', 'description'];
+     protected $fillable = ['stars', 'description'];
 
      public function getId(): int
      {
@@ -44,11 +44,11 @@ class Review extends Model
 
      public function getCreatedAt(): string
      {
-         return $this->attributes['created_at']
+         return $this->attributes['created_at'];
      }
 
      public function getUpdatedAt(): string
      {
-         return $this->attributes['updated_at']
+         return $this->attributes['updated_at'];
      }
 }
