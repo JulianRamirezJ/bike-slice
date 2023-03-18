@@ -11,7 +11,7 @@ return [
     'welcome' => 'Welcome to Bike Slice',
     'welcome_usr' => 'Welcome User',
     'welcome_admin' => 'Welcome User admin',
-    'nav.item.dashboard' => 'Dashboard',
+    'nav.item.dashboard' => 'Dashboard',    
     'nav.item.login' => 'LogIn',
     'nav.item.signup' => 'SignUp',
     'nav.item.bikes' => 'Bikes',
