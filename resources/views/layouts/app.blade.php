@@ -12,7 +12,7 @@
 
 <body>
   <!-- header -->
-  <nav class="navbar navbar-expand-lg navbar-dark  py-4">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark  py-4">
     <div class="container">
       <a class="navbar-brand" href="{{ route('home.index') }}">{{ __('messages.bike_slice') }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
