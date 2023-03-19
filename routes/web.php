@@ -25,8 +25,13 @@ Route::middleware(['auth.role:admin'])->group(function () {
 
 //User routes
 Route::middleware(['auth.role:user'])->group(function () {
-    //Put all admin routes with prefix /admin
+    //Put all user routes with prefix /user
     Route::get('/user', 'App\Http\Controllers\User\UserController@index')->name('user.index');
+    Route::get('/user/showAll', 'App\Http\Controllers\BikeController@showAll')->name("user.bike.showAll");
+    Route::get('/user/create', 'App\Http\Controllers\BikeController@create')->name("user.bike.create");
+    Route::post('/user/save', 'App\Http\Controllers\BikeController@save')->name("user.bike.save");
+    Route::get('/user/show/{id}', 'App\Http\Controllers\BikeController@show')->name("user.bike.show");
+    Route::get('/remove/{id}', 'App\Http\Controllers\BikeController@remove')->name("user.bike.remove");
 });
 
 //Auth routes
