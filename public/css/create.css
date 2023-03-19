@@ -1,3 +1,8 @@
+.title{
+    padding-top: 10px;
+    padding-bottom: 60px;
+}
+
 .bike_create_check{
     width: 20px;
     height: 20px;
@@ -20,6 +25,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.btn-center{
+    align-items: center;
+    width: 245%;
 }
 
 #error_list{

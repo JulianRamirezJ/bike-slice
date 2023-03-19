@@ -11,9 +11,14 @@
     color: black;
 }
 
+.parts{
+    padding-top: 2%;
+}
+
 #show_all_container{
     display: flex;
     justify-content: center;
+    padding-top: 5%;
 }
 
 #item-container{
