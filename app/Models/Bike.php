@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Bike extends Model
 {
@@ -16,12 +17,13 @@ class Bike extends Model
      * $this->attributes['type'] - string - contains the type of bike (prefabricated or created by users)
      * $this->attributes['brand'] - string - contains the brand of the bike 
      * $this->attributes['description'] - string - contains a description of the bike
-     * $this->attributes['image'] - string - contains name of the bikes image
+     * $this->attributes['img'] - string - contains name of the bikes image
+     * $this->attributes['user_id'] - string - id of user who created the bike
      * $this->attributes['created_at'] - string - contains date of creation
      * $this->attributes['updated_at '] - string - contains date of last modification
      */
 
-     protected $fillable = ['price', 'image', 'name', 'stock', 'shareable', 'type', 'brand', 'description'];
+     protected $fillable = ['price', 'img', 'name', 'stock', 'share', 'type', 'brand', 'description', 'user_id'];
 
      public function getId(): int
      {
@@ -31,6 +33,11 @@ class Bike extends Model
      public function getName(): string
      {
          return $this->attributes['name'];
+     }
+
+     public function getUserId(): int
+     {
+         return $this->attributes['user_id'];
      }
  
      public function setName(string $name): void
@@ -58,14 +65,14 @@ class Bike extends Model
          $this->attributes['stock'] = $stock;
      }
  
-     public function getShareable(): bool
+     public function getShare(): bool
      {
-         return $this->attributes['shareable'];
+         return $this->attributes['share'];
      }
  
-     public function setShareable(bool $shareable): void
+     public function setShare(bool $share): void
      {
-         $this->attributes['shareable'] = $shareable;
+         $this->attributes['share'] = $share;
      }
  
      public function getType(): string
@@ -100,12 +107,12 @@ class Bike extends Model
 
      public function getImage(): string
      {
-         return $this->attributes['image'];
+         return $this->attributes['img'];
      }
  
-     public function setImage(string $image): void
+     public function setImage(string $img): void
      {
-         $this->attributes['image'] = $image;
+         $this->attributes['img'] = $img;
      }
 
      public function getCreatedAt(): string
@@ -117,4 +124,18 @@ class Bike extends Model
      {
          return $this->attributes['updated_at'];
      }
+
+     public static function validateCreation(Request $request)
+     {
+        $request->validate([
+            "name" => "required|max:30",
+            "stock" => "required|integer|min:0",
+            "price" => "required|integer|min:0",
+            "type" => "required",
+            "brand" => "required|max:30",
+            "image" => "required|mimes:jpg,png,jpeg|max:5048",
+            "description" => "required|max:1024"
+        ]);
+     }
+
 }
