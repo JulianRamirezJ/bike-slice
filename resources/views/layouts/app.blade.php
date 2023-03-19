@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     crossorigin="anonymous" />
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+  @yield('sectioncss','')
   <title>@yield('title', __('messages.bike_slice'))</title>
 </head>
 
@@ -36,7 +37,7 @@
               @elseif(Auth::user()->getRole() == 'user')
               {{-- Links to user routes --}}
               <a class="nav-link active" href="#">{{__('messages.nav.item.cart')}}</a>
-              <a class="nav-link active" href="#">{{__('messages.nav.item.your_bikes')}}</a>
+              <a class="nav-link active" href="{{ route('user.bike.showAll')}}">{{__('messages.nav.item.your_bikes')}}</a>
               <a class="nav-link active" href="#">{{__('messages.nav.item.user_config')}}</a>
               @endif
               <div class="vr bg-white mx-2 d-none d-lg-block"></div>
