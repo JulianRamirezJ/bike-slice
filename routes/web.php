@@ -20,7 +20,11 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')
 Route::middleware(['auth.role:admin'])->group(function () {
     //Put all admin routes with prefix /admin
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminController@index')->name('admin.index');
-    Route::get('/admin/create', 'App\Http\Controllers\Admin\AdminController@create')->name('admin.create');
+    Route::get('/admin/part/', 'App\Http\Controllers\PartController@showAll')->name('admin.part.showall');
+    Route::get('/admin/part/create', 'App\Http\Controllers\PartController@create')->name('admin.part.create');
+    Route::post('/admin/part/save', 'App\Http\Controllers\PartController@save')->name('admin.part.save');
+    Route::get('/admin/part/show/{id}', 'App\Http\Controllers\PartController@show')->name('admin.part.show');
+    Route::delete('/admin/part/remove/{id}', 'App\Http\Controllers\PartController@remove')->name('admin.part.remove');
 });
 
 //User routes

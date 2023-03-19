@@ -33,7 +33,7 @@
               {{-- Links to admin routes --}}
               <a class="nav-link active" href="{{ route('admin.index') }}">{{__('messages.nav.item.dashboard')}}</a>
               <a class="nav-link active" href="#">{{__('messages.nav.item.bikes')}}</a>
-              <a class="nav-link active" href="#">{{__('messages.nav.item.parts')}}</a>
+              <a class="nav-link active" href="{{ route('admin.part.showall') }}">{{__('messages.nav.item.parts')}}</a>
               @elseif(Auth::user()->getRole() == 'user')
               {{-- Links to user routes --}}
               <a class="nav-link active" href="#">{{__('messages.nav.item.cart')}}</a>
@@ -57,7 +57,7 @@
   </div>
 
   <!-- footer -->
-  <div class="copyright py-4 text-center text-white">
+  <div class="copyright py-4 text-center bg-secondary text-white">
     <div class="container">
       <small>
         Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"

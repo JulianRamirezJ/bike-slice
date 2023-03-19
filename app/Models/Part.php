@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Part extends Model
 {
@@ -61,11 +62,11 @@ class Part extends Model
     {
         $this->attributes['type'] = $type;
     }
-    public function getImg(): string
+    public function getImage(): string
     {
         return $this->attributes['img'];
     }
-    public function setImg(string $img): void
+    public function setImage(string $img): void
     {
         $this->attributes['img'] = $img;
     }
@@ -84,5 +85,21 @@ class Part extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function getAdmin(){
+        return $this->belongsTo(User::class);
+    }
+
+    public static function validateCreation(Request $request)
+    {
+        $request->validate([
+            "name" => "required|max:30",
+            "stock" => "required|integer|min:0",
+            "price" => "required|integer|min:0",
+            "type" => "required",
+            "brand" => "required|max:30",
+            "image" => "required|mimes:jpg,png,jpeg|max:5048",
+        ]);
     }
 }
