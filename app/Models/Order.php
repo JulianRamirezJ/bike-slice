@@ -3,6 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Collection;
+use App\Models\User;
+use App\Models\Item;
+
 
 class Order extends Model
 {
@@ -16,6 +22,8 @@ class Order extends Model
      * $this->attributes['place_date'] - date - contains the Order Place_date
      * $this->attributes['created_at'] - string - contains date of creation
      * $this->attributes['updated_at '] - string - contains date of last modification
+     * $this->user - User - contains the associated user
+     * $this->items - Items[] - contains the associated items
      */
 
     protected $fillable = ['total', 'status', 'address', 'place_date'];
@@ -67,5 +75,29 @@ class Order extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items;
     }
 }
