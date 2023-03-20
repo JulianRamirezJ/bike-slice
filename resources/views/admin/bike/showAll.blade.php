@@ -1,6 +1,6 @@
 @extends('layouts/app')
 @section('title')
-    Inventory
+    {{$viewData["title"]}}
 @endsection
 @section('sectioncss')
     <link href="{{ asset('/css/showAll.css') }}" rel="stylesheet" />
@@ -9,6 +9,11 @@
 <div class="container container-fluid text-dark text-center title">
         <h1>{{__('messages.view_bikes') }}</h1>
 </div>
+    @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+    @endif
     <a href="{{ route('admin.bike.create') }}" class="btn btn-outline bg-success text-white btn-lg">
         {{__('messages.create_bike') }}
     </a>

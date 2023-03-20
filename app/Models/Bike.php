@@ -143,6 +143,43 @@ class Bike extends Model
             "description" => "required|max:1024"
         ]);
     }
+
+    public static function validateAdminCreation(Request $request)
+    {
+        $request->validate([
+            "name" => "required|max:30",
+            "type" => "required",
+            "price" => "required",
+            "stock" => "required",
+            "brand" => "required",
+            "image" => "required|mimes:jpg,png,jpeg|max:5048",
+            "description" => "required|max:1024"
+        ]);
+    }
+
+    public static function validateUserUpdate(Request $request)
+    {
+        $request->validate([
+            "name" => "required|max:30",
+            "type" => "required",
+            "image" => "mimes:jpg,png,jpeg|max:5048",
+            "description" => "required|max:1024"
+        ]);
+    }
+
+    public static function validateAdminUpdate(Request $request)
+    {
+        $request->validate([
+            "name" => "required|max:30",
+            "type" => "required",
+            "price" => "required",
+            "stock" => "required",
+            "brand" => "required",
+            "image" => "mimes:jpg,png,jpeg|max:5048",
+            "description" => "required|max:1024"
+        ]);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

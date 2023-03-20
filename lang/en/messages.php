@@ -71,4 +71,7 @@ return [
     'bike_created_succesfully' => 'The new bike has been created successfully',
     'view_bikes' => 'View Bikes',
     'create_bike' => 'Create new bike',
+    'bike_update' => 'Update bike',
+    'update_bike' => 'Update your bike',
+    'bike_updated_succesfully' => 'Bike updated succesfully'
 ];

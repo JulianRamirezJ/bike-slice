@@ -31,7 +31,7 @@
               @if(Auth::user()->getRole() == 'admin')
               {{-- Links to admin routes --}}
               <a class="nav-link active" href="{{ route('admin.index') }}">{{__('messages.nav.item.dashboard')}}</a>
-              <a class="nav-link active" href="{{ route('admin.bike.showall')}}">{{__('messages.nav.item.bikes')}}</a>
+              <a class="nav-link active" href="{{ route('admin.bike.showAll')}}">{{__('messages.nav.item.bikes')}}</a>
               <a class="nav-link active" href="{{ route('admin.part.showall') }}">{{__('messages.nav.item.parts')}}</a>
               @elseif(Auth::user()->getRole() == 'user')
               {{-- Links to user routes --}}

@@ -16,23 +16,48 @@ class BikeController extends Controller
     public function showAll(): View
     {
         $viewData['bikes'] = Bike::where('user_id', '=', Auth::id())->get();
+        $viewData['title'] = "Inventory";
         return view('admin.bike.showAll')->with("viewData", $viewData);
     }
 
     public function show(string $id): View
     {
         $viewData['bike'] = Bike::findOrFail($id);
+        $viewData['title'] = "Bike";
         return view('admin.bike.show')->with("viewData", $viewData);
+    }
+
+    public function update(string $id): View
+    {
+        $viewData['title'] = "Bike update";
+        $viewData['bike'] = Bike::findOrFail($id);
+        return view('admin.bike.update')->with("viewData", $viewData);;
+    }
+
+    public function saveUpdate(Request $request, string $id): RedirectResponse
+    {
+        Bike::validateAdminUpdate($request);
+        $request['share'] = ($request['share'] == '1');
+        if ($request->file('image')) {
+            $storeInterface = app(ImageStorage::class);
+            $storeInterface->store($request);
+            $request['img'] = $request->file('image')->getClientOriginalName();
+            Bike::where('id', $id)->update($request->only(['name', 'stock', 'price', 'share', 'type', 'brand','description', 'img']));
+        }else{
+            Bike::where('id', $id)->update($request->only(['name', 'stock', 'price', 'share', 'type', 'brand','description']));
+        }
+        return redirect()->route('admin.bike.showAll')->with('status', __('messages.bike_updated_succesfully'));
     }
 
     public function create(): View
     {
-        return view('admin.bike.create');
+        $viewData['title'] = "Bike creation";
+        return view('admin.bike.create')->with("viewData", $viewData);;
     }
 
     public function save(Request $request): RedirectResponse
     {
-        Bike::validateUserCreation($request);
+        Bike::validateAdminCreation($request);
         $input = $request->all();
         $storeInterface = app(ImageStorage::class);
         $storeInterface->store($request);
