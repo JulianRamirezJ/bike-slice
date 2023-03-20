@@ -129,10 +129,7 @@ class Bike extends Model
      {
         $request->validate([
             "name" => "required|max:30",
-            "stock" => "required|integer|min:0",
-            "price" => "required|integer|min:0",
             "type" => "required",
-            "brand" => "required|max:30",
             "image" => "required|mimes:jpg,png,jpeg|max:5048",
             "description" => "required|max:1024"
         ]);
