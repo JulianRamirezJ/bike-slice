@@ -69,4 +69,6 @@ return [
     'bike_delete' => 'Delete Bike',
     'add_bike' => 'Add bike',
     'bike_created_succesfully' => 'The new bike has been created successfully',
+    'view_bikes' => 'View Bikes',
+    'create_bike' => 'Create new bike',
 ];

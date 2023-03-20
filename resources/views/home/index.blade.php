@@ -34,17 +34,18 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div id="show_all_container">
-        <div id="item-container">
-            @foreach ($viewData["bikes"] as $bike)
-                <a href="{{route('user.bike.show', ['id'=>$bike->getId()])}}">
-                    <div class="item">
-                        <img src="{{ URL::asset('storage/'.$bike->getImage()) }}"/>
-                        <p class="item_title"> {{$bike->name}} </p>
-                    </div>
-                </a>
-            @endforeach
+    <div class="row parts">
+    @foreach ($viewData["bikes"] as $bike)
+        <div class="col-md-4 col-lg-3 mb-2">
+            <div class="card">
+                <img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="card-img-top img-card"/>
+                <div class="card-body text-center">
+                    <a href="{{route('user.bike.show', ['id'=>$bike->getId()])}}"
+                    class="btn bg-secondary text-white display-3">{{ $bike->name }}</a>
+                </div>
+            </div>
         </div>
+    @endforeach   
     </div>
 </div>
 @endsection
