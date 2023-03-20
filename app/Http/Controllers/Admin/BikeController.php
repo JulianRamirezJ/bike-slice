@@ -16,18 +16,18 @@ class BikeController extends Controller
     public function showAll(): View
     {
         $viewData['bikes'] = Bike::where('user_id', '=', Auth::id())->get();
-        return view('user.bike.showAll')->with("viewData", $viewData);
+        return view('admin.bike.showAll')->with("viewData", $viewData);
     }
 
     public function show(string $id): View
     {
         $viewData['bike'] = Bike::findOrFail($id);
-        return view('user.bike.show')->with("viewData", $viewData);
+        return view('admin.bike.show')->with("viewData", $viewData);
     }
 
     public function create(): View
     {
-        return view('user.bike.create');
+        return view('admin.bike.create');
     }
 
     public function save(Request $request): RedirectResponse
@@ -39,11 +39,11 @@ class BikeController extends Controller
         $input['image'] = $request->file('image')->getClientOriginalName();
         Bike::create([
             'name' => $input['name'],
-            'stock' => 0,
-            'price' => 0,
+            'stock' => $input['stock'],
+            'price' => $input['price'],
             'share' => ($input['share'] == '1'),
             'type' => $input['type'],
-            'brand' => "nan",
+            'brand' => $input['brand'],
             'img'=> $input['image'],
             'description' => $input['description'],
             'user_id'=> Auth::id(),
@@ -54,6 +54,6 @@ class BikeController extends Controller
     public function remove(string $id): RedirectResponse
     {
         Bike::findOrFail($id)->delete();
-        return redirect()->route('user.bike.showAll');
+        return redirect()->route('admin.bike.showAll');
     }
 }
