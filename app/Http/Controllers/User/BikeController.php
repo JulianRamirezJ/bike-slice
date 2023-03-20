@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -8,6 +8,7 @@ use App\Models\Bike;
 use \Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Interfaces\ImageStorage;
+use App\Http\Controllers\Controller;
 
 class BikeController extends Controller
 {
@@ -29,9 +30,9 @@ class BikeController extends Controller
         return view('user.bike.create');
     }
 
-    public function save(Request $request): View
+    public function save(Request $request): RedirectResponse
     {
-        Bike::validateCreation($request);
+        Bike::validateUserCreation($request);
         $input = $request->all();
         $storeInterface = app(ImageStorage::class);
         $storeInterface->store($request);
@@ -47,13 +48,12 @@ class BikeController extends Controller
             'description' => $input['description'],
             'user_id'=> Auth::id(),
         ]);
-        return view('user.bike.success');
+        return back()->with('status', __('messages.bike_created_succesfully'));;
     }
 
     public function remove(string $id): RedirectResponse
     {
-        $bike = Bike::findOrFail($id);
-        $bike->delete();
-        return redirect("/user/showAll");
+        Bike::findOrFail($id)->delete();
+        return redirect()->route('user.bike.showAll');
     }
 }
