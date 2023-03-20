@@ -20,7 +20,7 @@
          </ul>
       @endif
       <div id="form_container">
-         <form method="POST" id="bike_create_form" enctype="multipart/form-data" action="{{ route('user.bike.save') }}">
+         <form method="POST" id="bike_create_form" enctype="multipart/form-data" action="{{ route('admin.bike.save') }}">
             @csrf
             <input type="text" name="name" class="bike_create_input" placeholder="{{ __('messages.enter_bike_name') }}" value="{{ old('name') }}" required/>
             <input type="number" name="stock"  class="bike_create_input" placeholder="{{ __('messages.enter_bike_stock') }}"  value="{{ old('stock') }}" required/>

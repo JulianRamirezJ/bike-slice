@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('user.bike.remove', ['id'=>$viewData['bike']->getId()])}}" method="post">
+        <form action="{{ route('admin.bike.remove', ['id'=>$viewData['bike']->getId()])}}" method="post">
             <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_delete')}}</button>
             @csrf
             @method('delete')
