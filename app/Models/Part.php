@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Collection;
+use App\Models\Assembly;
 
 class Part extends Model
 {
@@ -101,5 +104,17 @@ class Part extends Model
             "brand" => "required|max:30",
             "image" => "required|mimes:jpg,png,jpeg|max:5048",
         ]);
+    }
+    public function assemblies(): HasMany 
+    {
+        return $this->hasMany(Assembly::class);
+    }
+    public function getAssemblies(): Collection
+    {
+        return $this->assemblies;
+    }
+    public function setAssemblies(Collection $assemblies): void
+    {
+        $this->assemblies = $assemblies;
     }
 }
