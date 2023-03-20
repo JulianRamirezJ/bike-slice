@@ -9,7 +9,7 @@
     <div id="show_all_container">
             <a href="{{ route('user.bike.create')}}">
                 <div class="nav_option">
-                    <p class="nav_opt_text"> Add Bike </p>
+                    <p class="nav_opt_text">{{__('messages.add_bike')}} </p>
                 </div>
             </a>
         <div id="item-container">
@@ -17,7 +17,7 @@
                 <a href="{{route('user.bike.show', ['id'=>$bike->getId()])}}">
                     <div class="item">
                         <img src="{{ URL::asset('storage/'.$bike->getImage()) }}"/>
-                        <p class="item_title"> {{$bike->name}} </p>
+                        <p class="item_title"> {{$bike->getName()}} </p>
                     </div>
                 </a>
             @endforeach
