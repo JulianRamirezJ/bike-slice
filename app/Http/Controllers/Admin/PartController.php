@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -10,6 +10,7 @@ use \Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use App\Interfaces\ImageStorage;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\Controller;
 
 class PartController extends Controller
 {
@@ -50,11 +51,12 @@ class PartController extends Controller
         $input['image'] = $request->file('image')->getClientOriginalName();
         Part::create([
             'name' => $input['name'],
-            'stock' => $input['stock'],
-            'price' => $input['price'],
+            'stock' => 0,
+            'price' => 0,
             'type' => $input['type'],
-            'brand' => $input['brand'],
-            'img'=> $input['image']
+            'brand' => "0",
+            'img'=> $input['image'],
+            'share' => ($input['share'] == '1'),
         ]);
         return back()->with('status', __('messages.created_succesfully'));;
     }

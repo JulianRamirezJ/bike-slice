@@ -125,7 +125,7 @@ class Bike extends Model
          return $this->attributes['updated_at'];
      }
 
-     public static function validateCreation(Request $request)
+     public static function validateUserCreation(Request $request)
      {
         $request->validate([
             "name" => "required|max:30",
