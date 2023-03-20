@@ -40,7 +40,7 @@
             <div class="card">
                 <img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="card-img-top img-card"/>
                 <div class="card-body text-center">
-                    <a href="{{route('user.bike.show', ['id'=>$bike->getId()])}}"
+                    <a href="{{route('login')}}"
                     class="btn bg-secondary text-white display-3">{{ $bike->name }}</a>
                 </div>
             </div>
