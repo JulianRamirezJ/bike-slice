@@ -6,21 +6,24 @@
     <link href="{{ asset('/css/showAll.css') }}" rel="stylesheet" />
 @endsection
 @section('content')
-    <div id="show_all_container">
-            <a href="{{ route('admin.bike.create')}}">
-                <div class="nav_option">
-                    <p class="nav_opt_text">{{__('messages.add_bike')}} </p>
+<div class="container container-fluid text-dark text-center title">
+        <h1>{{__('messages.view_bikes') }}</h1>
+</div>
+    <a href="{{ route('admin.bike.create') }}" class="btn btn-outline bg-success text-white btn-lg">
+        {{__('messages.create_bike') }}
+    </a>
+    <div class="row parts">
+    @foreach ($viewData["bikes"] as $bike)
+        <div class="col-md-4 col-lg-3 mb-2">
+            <div class="card">
+            <img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="card-img-top img-card"/>
+                <div class="card-body text-center">
+                    <a href="{{route('admin.bike.show', ['id'=>$bike->getId()])}}"
+                    class="btn bg-primary text-white">{{ $bike->name }}</a>
                 </div>
-            </a>
-        <div id="item-container">
-            @foreach ($viewData["bikes"] as $bike)
-                <a href="{{route('admin.bike.show', ['id'=>$bike->getId()])}}">
-                    <div class="item">
-                        <img src="{{ URL::asset('storage/'.$bike->getImage()) }}"/>
-                        <p class="item_title"> {{$bike->name}} </p>
-                    </div>
-                </a>
-            @endforeach
+            </div>
         </div>
+    @endforeach   
     </div>
+</div>
 @endsection

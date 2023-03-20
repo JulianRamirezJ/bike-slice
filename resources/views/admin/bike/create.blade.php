@@ -6,6 +6,9 @@
    <link href="{{ asset('/css/create.css') }}" rel="stylesheet" />
 @endsection
 @section('content')
+   <div class="container container-fluid text-dark text-center title">
+      <h1>{{__('messages.create_bike') }}</h1>
+   </div>
    <div id="create_container">
          @if (session('status'))
             <div class="alert alert-success">
@@ -42,7 +45,7 @@
                <input type="file" name="image" class="bike_create_file"/>
             </div>
             <textarea name = "description" id="form_textarea"rows = "5" cols = "60"  value="{{ old('description') }}" placeholder="{{__('messages.enter_bike_description')}}" required></textarea>
-            <input type="submit" id="form_submit" value="{{__('messages.enter_bike_send')}}"/>
+            <input type="submit" class="btn btn-lg btn-success btn-center" value="{{ __('messages.send') }}"/>
          </form>
       </div>
    </div>
