@@ -1,6 +1,6 @@
 @extends('layouts/app')
 @section('title')
-   Add bike
+   {{$viewData["title"]}}
 @endsection
 @section('sectioncss')
    <link href="{{ asset('/css/create.css') }}" rel="stylesheet" />

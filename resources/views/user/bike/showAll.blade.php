@@ -1,6 +1,6 @@
 @extends('layouts/app')
 @section('title')
-    Inventory
+    {{$viewData["title"]}}
 @endsection
 @section('sectioncss')
     <link href="{{ asset('/css/showAll.css') }}" rel="stylesheet" />
@@ -9,6 +9,11 @@
 <div class="container container-fluid text-dark text-center title">
         <h1>{{__('messages.view_bikes') }}</h1>
 </div>
+    @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+    @endif
     <a href="{{ route('user.bike.create') }}" class="btn btn-outline bg-success text-white btn-lg">
         {{__('messages.create_bike') }}
     </a>
@@ -19,8 +24,9 @@
             <img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="card-img-top img-card"/>
                 <div class="card-body text-center">
                     <a href="{{route('user.bike.show', ['id'=>$bike->getId()])}}"
-                    class="btn bg-primary text-white">{{ $bike->name }}</a>
+                    class="btn bg-primary text-white">{{ $bike->getName() }}</a>
                 </div>
+                
             </div>
         </div>
     @endforeach   
