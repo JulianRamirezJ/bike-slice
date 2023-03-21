@@ -1,6 +1,6 @@
 @extends('layouts/app')
 @section('title')
-    success
+    {{$viewData["title"]}}
 @endsection
 @section('sectioncss')
     <link href="{{ asset('/css/show.css') }}" rel="stylesheet" />
@@ -10,6 +10,7 @@
         <div id="show_info_container">
             <img id="show_img" src="{{ URL::asset('storage/'.$viewData["bike"]->getImage()) }}"/>
             <div id="show_info">
+            <p class="show_info_general">{{$viewData["bike"]->getName()}}</p>
                 <p class="show_info_general">{{__('messages.bike_stock')}} {{$viewData["bike"]->getStock()}}</p>
                 <p class="show_info_general">{{__('messages.bike_brand')}} {{$viewData["bike"]->getBrand()}}</p>
                 <p class="show_info_general">{{__('messages.bike_type')}} {{$viewData["bike"]->getType()}}</p>
@@ -25,10 +26,15 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('admin.bike.remove', ['id'=>$viewData['bike']->getId()])}}" method="post">
-            <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_delete')}}</button>
-            @csrf
-            @method('delete')
-        </form>
+        <div id="options_container">
+            <form action="{{ route('admin.bike.remove', ['id'=>$viewData['bike']->getId()])}}" method="post">
+                <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_delete')}}</button>
+                @csrf
+                @method('delete')
+            </form>
+            <a href="{{ route('admin.bike.update', ['id'=>$viewData['bike']->getId()])}}">
+                <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_update')}}</button>
+            </a>
+        </div>
     </div>
 @endsection

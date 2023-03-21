@@ -31,3 +31,8 @@
 #show_description_container{
     grid-column: 1/3;
 }
+
+#options_container{
+    display: flex;
+    gap: 20px;
+}

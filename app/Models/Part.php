@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Collection;
+use App\Models\Assembly;
 
 class Part extends Model
 {
@@ -103,6 +106,7 @@ class Part extends Model
         ]);
     }
 
+
     public static function validateUpdate(Request $request)
     {
         $request->validate([
@@ -112,5 +116,18 @@ class Part extends Model
             "type" => "required",
             "brand" => "required|max:30",
         ]);
+    }
+    
+    public function assemblies(): HasMany 
+    {
+        return $this->hasMany(Assembly::class);
+    }
+    public function getAssemblies(): Collection
+    {
+        return $this->assemblies;
+    }
+    public function setAssemblies(Collection $assemblies): void
+    {
+        $this->assemblies = $assemblies;
     }
 }
