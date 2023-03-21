@@ -24,6 +24,7 @@ Route::middleware(['auth.role:admin'])->group(function () {
     Route::get('/admin/part/create', 'App\Http\Controllers\Admin\PartController@create')->name('admin.part.create');
     Route::post('/admin/part/save', 'App\Http\Controllers\Admin\PartController@save')->name('admin.part.save');
     Route::get('/admin/part/show/{id}', 'App\Http\Controllers\Admin\PartController@show')->name('admin.part.show');
+    Route::post('/admin/part/update/{id}', 'App\Http\Controllers\Admin\PartController@update')->name('admin.part.update');
     Route::delete('/admin/part/remove/{id}', 'App\Http\Controllers\Admin\PartController@remove')->name('admin.part.remove');
     Route::get('/admin/bike/', 'App\Http\Controllers\Admin\BikeController@showAll')->name("admin.bike.showall");
     Route::get('/admin/bike/create', 'App\Http\Controllers\Admin\BikeController@create')->name("admin.bike.create");

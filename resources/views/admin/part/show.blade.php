@@ -4,20 +4,67 @@
     <link href="{{ asset('/css/show.css') }}" rel="stylesheet" />
 @endsection
 @section('content')
-    <div id="show_container">
-        <div id="show_info_container">
-            <img id="show_img" src="{{ URL::asset('storage/'.$viewData["part"]->getImage()) }}"/>
-            <div id="show_info">
-                <p class="show_info_general">{{ __('messages.stock')}}: {{$viewData["part"]->getStock()}}</p>
-                <p class="show_info_general"> {{ __('messages.brand') }}: {{$viewData["part"]->getBrand()}}</p>
-                <p class="show_info_general">{{ __('messages.type')}}: {{$viewData["part"]->getType()}}</p>
-                <p class="show_info_general">{{ __('messages.price')}}: {{$viewData["part"]->getPrice()}}</p>
+<div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{__('messages.update_part')}}</div>
+                <div class="card-body">
+                    @if($errors->any())
+                    <ul id="errors" class="alert alert-danger list-unstyled">
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    @endif
+                    @if (session('status') == 'updated')
+                    <div class="alert alert-success">
+                        {{ __('messages.updated_part') }}
+                    </div>
+                    @endif
+                    <form method="POST" enctype="multipart/form-data" action="{{ route('admin.part.update', ['id'=>$viewData['part']->getId()])}}">
+                        <button type="submit" class="btn bg-danger text-white" > {{ __('messages.delete_part')}}</button>
+                        @csrf
+                        @method('delete')
+                    </form>
+                    <form method="POST" action="{{ route('admin.part.update', ['id'=> $viewData["part"]->getId()]) }}"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3 text-center">
+                            <img src="{{ URL::asset('storage/'.$viewData['part']->getImage()) }}" class="card-img-top img-card"/>
+                        </div>
+                        <label for="type" class="form-label">{{__('messages.select_type')}}</label>
+                        <select class="form-select mb-3" name="type">
+                            @foreach($viewData["type_options"] as $option)
+                            @if($viewData["part"]->getType() == $option)
+                                <option value="{{$option}}" selected>
+                                    {{__($option)}}
+                                </option>
+                            @else
+                                <option value="{{$option}}">{{__($option)}}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                        <input type="text" class="form-control mb-3"
+                            placeholder="{{__('messages.enter_name')}}" name="name"
+                            value="{{ $viewData["part"]->getName() }}" />
+                        <input type="number" class="form-control mb-3"
+                            placeholder="{{__('messages.enter_stock')}}" name="stock"
+                            value="{{ $viewData["part"]->getStock() }}" />
+                        <input type="number" class="form-control mb-3"
+                            placeholder="{{__('messages.enter_price')}}" name="price"
+                            value="{{ $viewData["part"]->getPrice() }}" />
+                        <input type="text" class="form-control mb-3"
+                            placeholder="{{__('messages.enter_brand')}}" name="brand"
+                            value="{{ $viewData["part"]->getBrand() }}" />
+                        <div class="mb-3">
+                            <label for="file"
+                                class="form-label">{{__('messages.image')}}</label>
+                            <input class="form-control" type="file" name="image" id="file">
+                        </div>
+                        <input type="submit" class="btn btn-primary mt-2" value="Update" />
+                    </form>
+                </div>
             </div>
         </div>
-        <form action="{{ route('admin.part.remove', ['id'=> (int)$viewData['part']->getId()]) }}" method="post">
-            <button type="submit" class="btn bg-danger text-white" > {{ __('messages.delete_part')}}</button>
-            @csrf
-            @method('delete')
-        </form>
     </div>
 @endsection
