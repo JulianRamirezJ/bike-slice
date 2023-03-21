@@ -105,6 +105,19 @@ class Part extends Model
             "image" => "required|mimes:jpg,png,jpeg|max:5048",
         ]);
     }
+
+
+    public static function validateUpdate(Request $request)
+    {
+        $request->validate([
+            "name" => "required|max:30",
+            "stock" => "required|integer|min:0",
+            "price" => "required|integer|min:0",
+            "type" => "required",
+            "brand" => "required|max:30",
+        ]);
+    }
+    
     public function assemblies(): HasMany 
     {
         return $this->hasMany(Assembly::class);

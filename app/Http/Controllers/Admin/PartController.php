@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 
 class PartController extends Controller
 {
+    public static $type_options = ['chain', 'pedal', 'frame', 'handlebar', 'saddle', 'wheel'];
 
     public function showAll(): View
     {
@@ -28,6 +29,7 @@ class PartController extends Controller
         try {
             $viewData = [];
             $viewData['part'] = Part::findOrFail($id);
+            $viewData["type_options"] = PartController::$type_options;
             $viewData['title'] =  __('messages.show_part');
             return view('admin.part.show')->with("viewData", $viewData);
         } catch (ModelNotFoundException $e) {
@@ -58,6 +60,21 @@ class PartController extends Controller
             'img'=> $input['image']
         ]);
         return back()->with('status', __('messages.created_succesfully'));;
+    }
+
+    public function update(string $id, Request $request)
+    {
+        Part::findorfail($id);
+        Part::validateUpdate($request);
+        if ($request->file('image')) {
+            $storeInterface = app(ImageStorage::class);
+            $storeInterface->store($request);
+            $input['image'] = $request->file('image')->getClientOriginalName();
+            Part::where('id', $id)->update($request->only(['name', 'price', 'stock', 'type', 'brand', 'img']));
+        }else{
+            Part::where('id', $id)->update($request->only(['name', 'price', 'stock', 'type', 'brand']));
+        }
+        return back()->with('status', 'updated');;
     }
 
     public function remove(string $id): RedirectResponse
