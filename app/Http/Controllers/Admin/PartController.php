@@ -21,7 +21,7 @@ class PartController extends Controller
         $viewData = [];
         $viewData['title'] = __('messages.view_parts');
         $viewData['parts'] = Part::all();
-        return view('admin.part.showall')->with("viewData", $viewData);
+        return view('admin.part.showAll')->with("viewData", $viewData);
     }
 
     public function show(string $id): View | RedirectResponse
@@ -69,7 +69,7 @@ class PartController extends Controller
         if ($request->file('image')) {
             $storeInterface = app(ImageStorage::class);
             $storeInterface->store($request);
-            $input['image'] = $request->file('image')->getClientOriginalName();
+            $request['img'] = $request->file('image')->getClientOriginalName();
             Part::where('id', $id)->update($request->only(['name', 'price', 'stock', 'type', 'brand', 'img']));
         }else{
             Part::where('id', $id)->update($request->only(['name', 'price', 'stock', 'type', 'brand']));
