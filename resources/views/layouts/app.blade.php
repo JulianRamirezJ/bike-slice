@@ -11,66 +11,68 @@
 </head>
 
 <body>
-  <!-- header -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark  py-4">
-    <div class="container">
-      <a class="navbar-brand" href="{{ route('home.index') }}">{{ __('messages.bike_slice') }}</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto">
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ms-auto">
-              @guest
-              <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-              <a class="nav-link active" href="{{ route('login') }}">{{__('messages.nav.item.login')}}</a>
-              <a class="nav-link active" href="{{ route('register') }}">{{__('messages.nav.item.signup')}}</a>
-              @else
-              @if(Auth::user()->getRole() == 'admin')
-              {{-- Links to admin routes --}}
-              <a class="nav-link active" href="{{ route('admin.index') }}">{{__('messages.nav.item.dashboard')}}</a>
-              <a class="nav-link active" href="{{ route('admin.bike.showAll')}}">{{__('messages.nav.item.bikes')}}</a>
-              <a class="nav-link active" href="{{ route('admin.part.showall') }}">{{__('messages.nav.item.parts')}}</a>
-              @elseif(Auth::user()->getRole() == 'user')
-              {{-- Links to user routes --}}
-              <a class="nav-link active" href="#">{{__('messages.nav.item.cart')}}</a>
-              <a class="nav-link active" href="{{ route('user.bike.showAll')}}">{{__('messages.nav.item.your_bikes')}}</a>
-              <a class="nav-link active" href="#">{{__('messages.nav.item.user_config')}}</a>
-              @endif
-              <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-              <form id="logout" action="{{ route('logout') }}" method="POST">
-                <a role="button" class="nav-link active"
-                  onclick="document.getElementById('logout').submit();">{{__('messages.nav.item.logout')}}</a>
-                @csrf
-              </form>
-              @endguest
-            </div>
-          </div>
-        </div>
-  </nav>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ route('home.index') }}">{{ __('messages.bike_slice') }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    @if(request()->is('/'))
+      <div class="mx-auto mx-auto w-75">
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-warning" type="submit">Search</button>
+        </form>
+    </div>
+    @endif
+      <div class="navbar-nav ms-auto">
+        @guest
+          <a class="nav-link text-white" href="{{ route('login') }}">{{__('messages.nav.item.login')}}</a>
+          <a class="nav-link text-white" href="{{ route('register') }}">{{__('messages.nav.item.signup')}}</a>
+        @else
+          @if(Auth::user()->getRole() == 'admin')
+            {{-- Links to admin routes --}}
+            <a class="nav-link text-white" href="{{ route('admin.index') }}">{{__('messages.nav.item.dashboard')}}</a>
+            <a class="nav-link text-white" href="{{ route('admin.bike.showAll')}}">{{__('messages.nav.item.bikes')}}</a>
+            <a class="nav-link text-white" href="{{ route('admin.part.showall') }}">{{__('messages.nav.item.parts')}}</a>
+          @elseif(Auth::user()->getRole() == 'user')
+            {{-- Links to user routes --}}
+            <a class="nav-link text-white" href="#">{{__('messages.nav.item.cart')}}</a>
+            <a class="nav-link text-white" href="{{ route('user.bike.showAll')}}">{{__('messages.nav.item.your_bikes')}}</a>
+            <a class="nav-link text-white" href="#">{{__('messages.nav.item.user_config')}}</a>
+          @endif
+          <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">
+            <a role="button" class="nav-link text-white me-2"
+              onclick="document.getElementById('logout').submit();">{{__('messages.nav.item.logout')}}</a>
+            @csrf
+          </form>
+        @endguest
+      </div>
+    </div>
+  </div>
+</nav>
 
+
+  <!-- Content Section -->
   <div class="container my-4">
     @yield('content')
   </div>
 
-  <!-- footer -->
-  <div class="copyright py-4 text-center bg-secondary text-white">
-    <div class="container">
+  <!-- Footer -->
+  <div class="py-4 bg-secondary text-white">
+    <div class="container text-center">
       <small>
-        Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
-          href="https://github.com/JulianRamirezJ/bike-slice">
-          Bike Slice
-        </a>
+        © 2023 Bike Slice. All rights reserved.
       </small>
     </div>
   </div>
-  <!-- footer -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous">
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 </body>
-
 </html>

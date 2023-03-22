@@ -25,6 +25,26 @@
     display: grid;
     grid-template-columns: 300px 300px 300px 300px;
     column-gap: 50px;
+    max-width: 20px;
 }
 
+.carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+    max-height: 500px;
+    min-height: 300px;
+}
+  
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+}
 
+.card-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.bikes-container {
+    padding-top:2.5%;
+}
