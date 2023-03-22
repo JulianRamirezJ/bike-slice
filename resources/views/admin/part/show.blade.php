@@ -21,7 +21,7 @@
                         {{ __('messages.updated_part') }}
                     </div>
                     @endif
-                    <form method="POST" enctype="multipart/form-data" action="{{ route('admin.part.update', ['id'=>$viewData['part']->getId()])}}">
+                    <form method="POST" enctype="multipart/form-data" action="{{ route('admin.part.remove', ['id'=>$viewData['part']->getId()])}}">
                         <button type="submit" class="btn bg-danger text-white" > {{ __('messages.delete_part')}}</button>
                         @csrf
                         @method('delete')
