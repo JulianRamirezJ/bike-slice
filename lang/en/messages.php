@@ -45,6 +45,8 @@ return [
     'type' => 'Type',
     'price' => 'Price',
     'delete_part' => 'Delete Part',
+    'update_part' => 'Update Part  ',
+    'updated_part' => 'The part has been updated succesfully',
     //Bike MESSAGES
     'enter_bike_name' => 'Enter name',
     'enter_bike_stock' => 'Enter stock',
