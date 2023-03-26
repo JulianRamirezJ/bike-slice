@@ -76,8 +76,6 @@ return [
     'bike_update' => 'Update bike',
     'update_bike' => 'Update your bike',
     'bike_updated_succesfully' => 'Bike updated succesfully',
-
-    //Review
     'create_review' => 'Create Review',
     'title_create' => 'Create Item',
     'title_show' => 'Show Review',

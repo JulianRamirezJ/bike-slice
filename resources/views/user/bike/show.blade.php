@@ -31,7 +31,7 @@
                 <div class="row">
                 <div class="col-8"><h2>Reviews</h2></div>
                 <div class="col-4">
-                    @if (!$viewData["bike"]->hasReviewFromUser($viewData["user_id"]))
+                    @if (!$viewData["bike"]->hasReviewFromUser($viewData["user_id"]) && $viewData["user_id"]!=0)
                     <a href="{{ route('user.review.create', ['id'=> $viewData["bike"]->getId()]) }}" class="btn btn-outline bg-success text-white btn-lg">
                         {{__('messages.create_review') }}
                     </a>

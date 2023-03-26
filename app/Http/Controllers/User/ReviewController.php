@@ -22,8 +22,6 @@ class ReviewController extends Controller
     public function save(Request $request, int $id): RedirectResponse
     {
         Review::validate($request);
-        //$review = new Review();
-        //Review::create($request->only(["stars","description", Auth::id(), $id]));
         $input = $request->all();
         $review = Review::create([
             'stars' => $input['stars'],

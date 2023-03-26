@@ -10,7 +10,6 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        $viewData = [];
-        return view('home.index')->with('viewData', $viewData);
+        return view('home.index');
     }
 }

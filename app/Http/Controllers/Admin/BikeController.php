@@ -82,10 +82,4 @@ class BikeController extends Controller
         Bike::findOrFail($id)->delete();
         return redirect()->route('admin.bike.showAll');
     }
-
-    public function deleteReview(int $id): RedirectResponse
-    {
-        Review::findOrFail($id)->delete();
-        return back();
-    }
 }
