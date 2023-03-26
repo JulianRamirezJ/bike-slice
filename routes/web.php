@@ -35,6 +35,7 @@ Route::middleware(['auth.role:admin'])->group(function () {
     Route::patch('admin/bike/save/update/{id}', 'App\Http\Controllers\Admin\BikeController@saveUpdate')->name("admin.bike.save.update");
 });
 
+
 //User routes
 Route::middleware(['auth.role:user'])->group(function () {
     //Put all user routes with prefix /user
@@ -46,6 +47,9 @@ Route::middleware(['auth.role:user'])->group(function () {
     Route::delete('user/bike/remove/{id}', 'App\Http\Controllers\User\BikeController@remove')->name("user.bike.remove");
     Route::get('user/bike/update/{id}', 'App\Http\Controllers\User\BikeController@update')->name("user.bike.update");
     Route::patch('user/bike/save/update/{id}', 'App\Http\Controllers\User\BikeController@saveUpdate')->name("user.bike.save.update");
+    Route::get('user/review/create/{id}', 'App\Http\Controllers\User\ReviewController@create')->name("user.review.create");
+    Route::post('user/review/save/{id}', 'App\Http\Controllers\User\ReviewController@save')->name("user.review.save");
+    Route::delete('user/review/delete/{id}', 'App\Http\Controllers\User\ReviewController@delete')->name("user.review.delete");
 });
 
 //Auth routes

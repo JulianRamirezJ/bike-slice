@@ -83,6 +83,11 @@ class User extends Authenticatable
     {
         $this->reviews = $reviews;
     } 
+    public function hasReviewForBike(int $bike_id): bool
+    {
+        return $this->reviews()->where('bike_id', $bike_id)->exists();
+    }
+
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\User;
 use App\Models\Bike;
@@ -20,7 +21,7 @@ class Review extends Model
      * $this->bike - Bike - contains the associated bike
      */
 
-    protected $fillable = ['stars', 'description'];
+    protected $fillable = ['stars', 'description', 'user_id', 'bike_id'];
 
     public function getId(): int
     {
@@ -79,5 +80,13 @@ class Review extends Model
     public function setBike(Bike $bike): void
     {
         $this->bike = $bike;
+    }
+
+    public static function validate(Request $request): void
+    {   
+        $request->validate([
+            'stars' => 'required|numeric|min:0|max:5',
+            'description' => 'required|string|max:255',
+        ]);
     }
 }

@@ -23,7 +23,8 @@ class BikeController extends Controller
     public function show(string $id): View
     {
         $viewData['title'] = "Bike";
-        $viewData['bike'] = Bike::findOrFail($id);
+        $viewData['bike'] = Bike::with('reviews')->find($id);
+        $viewData['user_id'] = Auth::id();
         return view('user.bike.show')->with("viewData", $viewData);
     }
 

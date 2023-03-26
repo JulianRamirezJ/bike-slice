@@ -3,7 +3,7 @@
 <div class="row g-3">
     @foreach ($viewData["bikes"] as $bike)
     <div class="col-md-3 bikes-container">
-        <a href="{{ route('login') }}" wire:key="bike-{{ $bike->getId() }}" class="card-link">
+        <a href="{{  route('user.bike.show', ['id'=>$bike->getId()]) }}" wire:key="bike-{{ $bike->getId() }}" class="card-link">
         <div class="card">
             <img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="card-img-top" alt="{{ $bike->getName() }}" style="max-width: 100%;">
             <div class="card-body">

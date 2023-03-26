@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 use App\Models\User;
 use App\Models\Item;
 use App\Models\Assembly;
+use App\Models\Review; 
 
 class Bike extends Model
 {
@@ -215,6 +216,26 @@ class Bike extends Model
     public function setItems(Collection $items): void
     {
         $this->items = $items;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
+    public function hasReviewFromUser(int $user_id) : bool
+    {
+        return $this->reviews()->where('user_id', $user_id)->exists();
     }
 
 }
