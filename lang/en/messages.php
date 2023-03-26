@@ -75,5 +75,13 @@ return [
     'create_bike' => 'Create new bike',
     'bike_update' => 'Update bike',
     'update_bike' => 'Update your bike',
-    'bike_updated_succesfully' => 'Bike updated succesfully'
+    'bike_updated_succesfully' => 'Bike updated succesfully',
+    'create_review' => 'Create Review',
+    'title_create' => 'Create Item',
+    'title_show' => 'Show Review',
+    'created_at' => 'Created at',
+    'updated_at' => 'Updated at',
+    'stars' => 'Stars',
+    'enter_stars' => 'Enter Stars',
+    'enter_comment' => 'Enter Comment',
 ];

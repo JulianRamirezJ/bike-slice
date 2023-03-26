@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 //Public Routes
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
+Route::get('/user/bike/show/{id}', 'App\Http\Controllers\User\BikeController@show')->name("user.bike.show");
 
 //Admin Routes
 Route::middleware(['auth.role:admin'])->group(function () {
@@ -33,7 +34,9 @@ Route::middleware(['auth.role:admin'])->group(function () {
     Route::delete('admin/bike/remove/{id}', 'App\Http\Controllers\Admin\BikeController@remove')->name("admin.bike.remove");
     Route::get('admin/bike/update/{id}', 'App\Http\Controllers\Admin\BikeController@update')->name("admin.bike.update");
     Route::patch('admin/bike/save/update/{id}', 'App\Http\Controllers\Admin\BikeController@saveUpdate')->name("admin.bike.save.update");
+    Route::delete('admin/review/delete/{id}', 'App\Http\Controllers\Admin\ReviewController@delete')->name("admin.review.delete");
 });
+
 
 //User routes
 Route::middleware(['auth.role:user'])->group(function () {
@@ -42,10 +45,12 @@ Route::middleware(['auth.role:user'])->group(function () {
     Route::get('/user/bike/showAll', 'App\Http\Controllers\User\BikeController@showAll')->name("user.bike.showAll");
     Route::get('/user/bike/create', 'App\Http\Controllers\User\BikeController@create')->name("user.bike.create");
     Route::post('/user/bike/save', 'App\Http\Controllers\User\BikeController@save')->name("user.bike.save");
-    Route::get('/user/bike/show/{id}', 'App\Http\Controllers\User\BikeController@show')->name("user.bike.show");
     Route::delete('user/bike/remove/{id}', 'App\Http\Controllers\User\BikeController@remove')->name("user.bike.remove");
     Route::get('user/bike/update/{id}', 'App\Http\Controllers\User\BikeController@update')->name("user.bike.update");
     Route::patch('user/bike/save/update/{id}', 'App\Http\Controllers\User\BikeController@saveUpdate')->name("user.bike.save.update");
+    Route::get('user/review/create/{id}', 'App\Http\Controllers\User\ReviewController@create')->name("user.review.create");
+    Route::post('user/review/save/{id}', 'App\Http\Controllers\User\ReviewController@save')->name("user.review.save");
+    Route::delete('user/review/delete/{id}', 'App\Http\Controllers\User\ReviewController@delete')->name("user.review.delete");
 });
 
 //Auth routes
