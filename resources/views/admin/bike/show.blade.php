@@ -37,4 +37,30 @@
             </a>
         </div>
     </div>
+    <div class="container mt-5">
+        <h2>Reviews</h2>
+        <hr>
+            @foreach($viewData["bike"]->getReviews() as $review)
+            <div class="row mt-3">
+                <div class="col-3">
+                    <p><strong>User:</strong> {{ $review->getUser()->name }}</p>
+                    <p><strong>Date:</strong> {{ $review->getCreatedAt() }}</p>
+                </div>
+                <div class="col-2">
+                    <p><strong>Stars:</strong> {{ $review->getStars() }}</p>
+                </div>
+                <div class="col-5">
+                    <p><strong>Description:</strong> {{ $review->getDescription() }}</p>
+                </div>
+                <div class="col-2">
+                    <form action="{{ route('admin.review.delete', ['id'=> (int)$review->getId()]) }}" method="post">
+                        <button type="submit" class="btn bg-danger text-white" >Delete this review</button>
+                        @csrf
+                        @method('delete')
+                    </form>
+                </div>
+            </div>
+            <hr>
+            @endforeach
+    </div>
 @endsection

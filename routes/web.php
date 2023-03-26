@@ -33,6 +33,7 @@ Route::middleware(['auth.role:admin'])->group(function () {
     Route::delete('admin/bike/remove/{id}', 'App\Http\Controllers\Admin\BikeController@remove')->name("admin.bike.remove");
     Route::get('admin/bike/update/{id}', 'App\Http\Controllers\Admin\BikeController@update')->name("admin.bike.update");
     Route::patch('admin/bike/save/update/{id}', 'App\Http\Controllers\Admin\BikeController@saveUpdate')->name("admin.bike.save.update");
+    Route::delete('admin/review/delete/{id}', 'App\Http\Controllers\Admin\BikeController@deleteReview')->name("admin.review.delete");
 });
 
 

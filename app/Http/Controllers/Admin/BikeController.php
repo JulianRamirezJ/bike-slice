@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\Bike; 
+use App\Models\Bike;
+use App\Models\Review; 
 use \Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Interfaces\ImageStorage;
@@ -15,14 +16,14 @@ class BikeController extends Controller
 
     public function showAll(): View
     {
-        $viewData['bikes'] = Bike::where('user_id', '=', Auth::id())->get();
+        $viewData['bikes'] = Bike::all();
         $viewData['title'] = "Inventory";
         return view('admin.bike.showAll')->with("viewData", $viewData);
     }
 
     public function show(string $id): View
     {
-        $viewData['bike'] = Bike::findOrFail($id);
+        $viewData['bike'] = Bike::with('reviews')->find($id);
         $viewData['title'] = "Bike";
         return view('admin.bike.show')->with("viewData", $viewData);
     }
@@ -80,5 +81,11 @@ class BikeController extends Controller
     {
         Bike::findOrFail($id)->delete();
         return redirect()->route('admin.bike.showAll');
+    }
+
+    public function deleteReview(int $id): RedirectResponse
+    {
+        Review::findOrFail($id)->delete();
+        return back();
     }
 }
