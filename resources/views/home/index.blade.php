@@ -3,7 +3,6 @@
 @section('sectioncss')
     <link href="{{ asset('/css/showAll.css') }}" rel="stylesheet" />
 @endsection
-
 @section('content')
 <div class="container">
     <div id="carouselExample" class="carousel slide carousel-container" data-bs-ride="carousel">
@@ -27,22 +26,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-    <div class="row g-3">
-    @foreach ($viewData["bikes"] as $bike)
-    <div class="col-md-3 bikes-container">
-        <a href="{{ route('login') }}" class="card-link">
-        <div class="card">
-            <img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="card-img-top" alt="{{ $bike->getName() }}" style="max-width: 100%;">
-            <div class="card-body">
-                <h5 class="card-title">{{ $bike->getName() }}</h5>
-                <p class="card-text">{{ $bike->getPrice() }}</p>
-            </div>
-        </div>
-        </a>
-    </div>
-    @endforeach
-    </div>
-
+        @livewire('bikes.search-bike')
 </div>
 @endsection

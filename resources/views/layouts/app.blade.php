@@ -8,6 +8,7 @@
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
   @yield('sectioncss','')
   <title>@yield('title', __('messages.bike_slice'))</title>
+  @livewireStyles
 </head>
 
 <body>
@@ -20,14 +21,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    @if(request()->is('/'))
-      <div class="mx-auto mx-auto w-75">
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-warning" type="submit">Search</button>
-        </form>
-    </div>
-    @endif
       <div class="navbar-nav ms-auto">
         @guest
           <a class="nav-link text-white" href="{{ route('login') }}">{{__('messages.nav.item.login')}}</a>
@@ -74,5 +67,6 @@
     crossorigin="anonymous">
   </script>
   <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  @livewireScripts
 </body>
 </html>
