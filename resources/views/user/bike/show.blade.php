@@ -7,6 +7,11 @@
 @endsection
 @section('content')
     <div id="show_container">
+        @if($viewData['isInCart'])
+            <h5 class="my-2">{{__('messages.bike.already_is_in_cart')}}</h5>
+        @else
+            <a class="btn btn-success my-4" href="{{ route('cart.add', ['id'=> $viewData["bike"]->getId() ]) }}">{{__('messages.bike.add_cart')}}</a>
+        @endif
         <div id="show_info_container">
             <img id="show_img" src="{{ URL::asset('storage/'.$viewData["bike"]->getImage()) }}"/>
             <div id="show_info">
