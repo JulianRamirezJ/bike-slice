@@ -34,7 +34,7 @@
                <input type="hidden" name="share"  value="0"><input type="checkbox" class="bike_create_check" onclick="this.previousSibling.value=1-this.previousSibling.value">
             </div>
             <select name="type" id="form_select" value="{{ old('type') }}" required>
-               <option value="" disabled selected>Select a bike </option>
+               <option value="" disabled selected>{{__('messages.Select a bike')}} </option>
                <option value="road">{{__('messages.road_bike')}}</option>
                <option value="mountain">{{__('messages.mountain_bike')}}</option>
                <option value="city">{{__('messages.city_bike')}}</option>

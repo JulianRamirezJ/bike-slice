@@ -34,7 +34,7 @@
     </div>
     <div class="container mt-5">
                 <div class="row">
-                <div class="col-8"><h2>Reviews</h2></div>
+                <div class="col-8"><h2>{{__('messages.Reviews')}}</h2></div>
                 <div class="col-4">
                     @if (!$viewData["bike"]->hasReviewFromUser($viewData["user_id"]) && $viewData["user_id"]!=0)
                     <a href="{{ route('user.review.create', ['id'=> $viewData["bike"]->getId()]) }}" class="btn btn-outline bg-success text-white btn-lg">
@@ -47,19 +47,19 @@
             @foreach($viewData["bike"]->getReviews() as $review)
             <div class="row mt-3">
                 <div class="col-3">
-                    <p><strong>User:</strong> {{ $review->getUser()->name }}</p>
-                    <p><strong>Date:</strong> {{ $review->getCreatedAt() }}</p>
+                    <p><strong>{{__('messages.User')}}:</strong> {{ $review->getUser()->name }}</p>
+                    <p><strong>{{__('messages.Date')}}:</strong> {{ $review->getCreatedAt() }}</p>
                 </div>
                 <div class="col-2">
-                    <p><strong>Stars:</strong> {{ $review->getStars() }}</p>
+                    <p><strong>{{__('messages.Stars')}}:</strong> {{ $review->getStars() }}</p>
                 </div>
                 <div class="col-5">
-                    <p><strong>Description:</strong> {{ $review->getDescription() }}</p>
+                    <p><strong>{{__('messages.Description')}}:</strong> {{ $review->getDescription() }}</p>
                 </div>
                 <div class="col-2">
                     @if ($review->getUser()->id == $viewData["user_id"])
                     <form action="{{ route('user.review.delete', ['id'=> (int)$review->getId()]) }}" method="post">
-                        <button type="submit" class="btn bg-danger text-white" >Delete this review</button>
+                        <button type="submit" class="btn bg-danger text-white" >{{__('messages.Delete this review')}}</button>
                         @csrf
                         @method('delete')
                     </form>

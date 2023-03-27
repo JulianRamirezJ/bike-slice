@@ -91,6 +91,14 @@ return [
     'cart.quantity' => 'Quantity',
     'cart.button.remove_all' => 'Remove all products from cart',
     'cart.buy.note' => 'Note: You must be logged in to purchase',
-    'cart.buy.button.title' => 'Buy'
+    'cart.buy.button.title' => 'Buy',
+    'Select a bike' => 'Select a bike',
+    'Delete this review' => 'Delete this review',
+    'User' => 'User',
+    'Description' => 'Description',
+    'Stars' => 'Stars',
+    'Date' => 'Date',
+    'Reviews' => 'Reviews',
+    'All rights reserved' => 'All rights reserved',
 
 ];

@@ -58,7 +58,7 @@
   <div class="py-4 bg-secondary text-white">
     <div class="container text-center">
       <small>
-        © 2023 Bike Slice. All rights reserved.
+        © 2023 Bike Slice. {{__('messages.All rights reserved')}}
       </small>
     </div>
   </div>
