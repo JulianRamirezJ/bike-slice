@@ -20,11 +20,29 @@
                 @else
                     <p class="show_info_general">{{__('messages.bike_public_no')}}</p>
                 @endif
+                @if ($viewData["bike"]->getUser()->getRole() === 'user')
+                    @foreach($viewData["bike"]->getAssemblies() as $assemblie)
+                        <p class="show_info_general">{{$assemblie->getPart()->getName()}}</p>
+                    @endforeach
+                    <h1>User</h1>
+                @else
+                    <h1>Admin</h2>
+                @endif
                 <div id="show_description_container">
                     <p class="show_info_general"> {{__('messages.bike_description')}} </p>
                     <p class="show_info_description"> {{$viewData["bike"]->getDescription()}}</p>
                 </div>
             </div>
+        </div>
+        <div id="options_container">
+            <form action="{{ route('user.bike.remove', ['id'=>$viewData['bike']->getId()])}}" method="post">
+                <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_delete')}}</button>
+                @csrf
+                @method('delete')
+            </form>
+            <a href="{{ route('user.bike.update', ['id'=>$viewData['bike']->getId()])}}">
+                <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_update')}}</button>
+            </a>
         </div>
     </div>
     <div class="container mt-5">

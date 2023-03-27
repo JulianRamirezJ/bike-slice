@@ -20,6 +20,14 @@
                 @else
                     <p class="show_info_general">{{__('messages.bike_public_no')}}</p>
                 @endif
+                @if ($viewData["bike"]->getUser()->getRole() === 'user')
+                    @foreach($viewData["bike"]->getAssemblies() as $assemblie)
+                        <p class="show_info_general">{{$assemblie->getPart()->getName()}}</p>
+                    @endforeach
+                    <h1>User</h1>
+                @else
+                    <h1>Admin</h2>
+                @endif
                 <div id="show_description_container">
                     <p class="show_info_general"> {{__('messages.bike_description')}} </p>
                     <p class="show_info_description"> {{$viewData["bike"]->getDescription()}}</p>
