@@ -20,8 +20,13 @@ class BikeController extends Controller
         return view('user.bike.showAll')->with("viewData", $viewData);
     }
 
-    public function show(string $id): View
+    public function show(string $id, Request $request): View
     {
+        $cartBikeData = $request->session()->get('cart_bike_data');
+        $viewData['isInCart'] = false;
+        if($cartBikeData){  
+            $viewData['isInCart'] = array_key_exists($id, $cartBikeData);
+        }
         $viewData['title'] = "Bike";
         $viewData['bike'] = Bike::with('reviews')->find($id);
         if(Auth::id() == null) {

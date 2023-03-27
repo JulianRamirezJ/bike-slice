@@ -44,4 +44,14 @@ return [
     'type' => 'Tipo',
     'price' => 'Precio',
     'delete_part' => 'Eliminar Parte',
+
+    'bike.add_cart' => 'Añadir a carrito',
+    'bike.already_is_in_cart' => 'Ya agregaste la bicicleta al carro de compras',
+
+    'cart.title' => 'Bicicletas en carrito',
+    'cart.total' => 'Total',
+    'cart.quantity' => 'Cantidad',
+    'cart.button.remove_all' => 'Remover todos los productos del carrito',
+    'cart.buy.note' => 'Nota: Para realizar la compra debes iniciar sesión',
+    'cart.buy.button.title' => 'Comprar'
 ];

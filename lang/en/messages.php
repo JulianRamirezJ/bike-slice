@@ -84,4 +84,13 @@ return [
     'stars' => 'Stars',
     'enter_stars' => 'Enter Stars',
     'enter_comment' => 'Enter Comment',
+    'bike.add_cart' => 'Add to Cart',
+    'bike.already_is_in_cart' => 'You have already added the bicycle to the shopping cart',
+    'cart.title' => 'Bikes in Cart',
+    'cart.total' => 'Total',
+    'cart.quantity' => 'Quantity',
+    'cart.button.remove_all' => 'Remove all products from cart',
+    'cart.buy.note' => 'Note: You must be logged in to purchase',
+    'cart.buy.button.title' => 'Buy'
+
 ];
