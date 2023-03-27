@@ -5,6 +5,9 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Bike; 
+use App\Models\Part; 
+use App\Models\User; 
+use App\Models\Assembly; 
 use \Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Interfaces\ImageStorage;
@@ -23,7 +26,7 @@ class BikeController extends Controller
     public function show(string $id): View
     {
         $viewData['title'] = "Bike";
-        $viewData['bike'] = Bike::with('reviews')->find($id);
+        $viewData['bike'] = Bike::with('reviews', 'assemblies')->find($id);
         if(Auth::id() == null) {
             $viewData['user_id'] = 0;
         }else{
@@ -32,57 +35,126 @@ class BikeController extends Controller
         return view('user.bike.show')->with("viewData", $viewData);
     }
 
-    public function create(): View
-    {
-        $viewData['title'] = "Bike creation";
-        return view('user.bike.create')->with("viewData", $viewData);;
-    }
-
     public function update(string $id): View
     {
         $viewData['title'] = "Bike update";
         $viewData['bike'] = Bike::findOrFail($id);
-        return view('user.bike.update')->with("viewData", $viewData);;
+        $parts = Part::get();
+        $viewData['part_types'] = array(
+            'pedal'=>[],
+            'chain'=>[],
+            'frame'=>[],
+            'handlebar'=>[],
+            'saddle'=>[],
+            'wheel'=>[],
+            'chain'=>[],
+        );
+        foreach($parts as $part){
+            $viewData['part_types'][$part->type][] = $part;
+        }
+        return view('user.bike.update')->with("viewData", $viewData);
+        
     }
 
     public function saveUpdate(Request $request, string $id): RedirectResponse
     {
         Bike::validateUserUpdate($request);
+        $assemblies = Assembly::where('bike_id', $id)->get();
+        $parts = [$request['frame'],$request['wheel'],$request['saddle'],$request['chain'],$request['handlebar'],$request['pedal']];
+        $price = 0;
+        $stock = 10000;
+        foreach($parts as $part){
+            $p = Part::where('id', $part)->get();
+            $price += $p[0]->getPrice();
+            if($stock > $p[0]->getStock()){
+                $stock = $p[0]->getStock();
+            }
+        }
+        $request['price'] = $price;
+        $request['stock'] = $stock;
         $request['share'] = ($request['share'] == '1');
         if ($request->file('image')) {
             $storeInterface = app(ImageStorage::class);
             $storeInterface->store($request);
             $request['img'] = $request->file('image')->getClientOriginalName();
-            Bike::where('id', $id)->update($request->only(['name', 'share', 'type', 'description', 'img']));
+            Bike::where('id', $id)->update($request->only(['name', 'stock', 'price', 'share', 'type', 'brand','description', 'img'])); 
+            foreach($assemblies as $index=>$assembly){
+                $part = Part::where('id',$parts[$index])->get();
+                $assembly->setPart($part[0]);
+                $assembly->save();
+            }
         }else{
-            Bike::where('id', $id)->update($request->only(['name', 'share', 'type', 'description']));
+            Bike::where('id', $id)->update($request->only(['name', 'stock', 'price', 'share', 'type', 'brand','description']));         
+            foreach($assemblies as $index=>$assembly){
+                $part = Part::where('id',$parts[$index])->get();
+                $assembly->setPart($part[0]);
+                $assembly->save();
+            }
         }
         return redirect()->route('user.bike.showAll')->with('status', __('messages.bike_updated_succesfully'));
+    }
+
+    public function create(): View
+    {
+        $viewData['title'] = "Bike creation";
+        $parts = Part::get();
+        $viewData['part_types'] = array(
+            'pedal'=>[],
+            'chain'=>[],
+            'frame'=>[],
+            'handlebar'=>[],
+            'saddle'=>[],
+            'wheel'=>[],
+            'chain'=>[],
+        );
+        foreach($parts as $part){
+            $viewData['part_types'][$part->type][] = $part;
+        }
+        return view('user.bike.create')->with("viewData", $viewData);
     }
 
     public function save(Request $request): RedirectResponse
     {
         Bike::validateUserCreation($request);
         $input = $request->all();
+        $parts = [$input['frame'],$input['wheel'],$input['saddle'],$input['chain'],$input['handlebar'],$input['pedal']];
         $storeInterface = app(ImageStorage::class);
         $storeInterface->store($request);
         $input['image'] = $request->file('image')->getClientOriginalName();
-        Bike::create([
+        $price = 0;
+        $stock = 10000;
+        foreach($parts as $part){
+            $p = Part::where('id', $part)->get();
+            $price += $p[0]->getPrice();
+            if($stock > $p[0]->getStock()){
+                $stock = $p[0]->getStock();
+            }
+        }
+        $Bike = Bike::create([
             'name' => $input['name'],
-            'stock' => 0,
-            'price' => 0,
+            'stock' => $stock,
+            'price' => $price,
             'share' => ($input['share'] == '1'),
             'type' => $input['type'],
-            'brand' => "nan",
+            'brand' => "Parts",
             'img'=> $input['image'],
             'description' => $input['description'],
             'user_id'=> Auth::id(),
         ]);
+        $id = $Bike->id;
+        //Create assembly for each part
+        foreach($parts as $part){
+            Assembly::create([
+                'bike_id' => $id,
+                'part_id' => $part
+            ]);
+        }
         return back()->with('status', __('messages.bike_created_succesfully'));
     }
 
     public function remove(string $id): RedirectResponse
     {
+        Assembly::where('bike_id', $id)->delete();
         Bike::findOrFail($id)->delete();
         return redirect()->route('user.bike.showAll');
     }
