@@ -1,6 +1,7 @@
 Bike Slice
 
-Aquí podrá encontrar la información del proyecto (Wiki): https://github.com/JulianRamirezJ/bike-slice/wiki/Pagina-Principal
+Aquí podrá encontrar la información del proyecto (Wiki):
+    https://github.com/JulianRamirezJ/bike-slice/wiki/Pagina-Principal
 
 Para lanzar el proyecto debe asegurar primero que todo que se tengan todas las dependencias de laravel instaladas.
 De igual modo debe tener livewire instalado.
