@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 //Public Routes
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 Route::get('/user/bike/show/{id}', 'App\Http\Controllers\User\BikeController@show')->name("user.bike.show");
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
+Route::get('/cart/removeAll', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+
 
 //Admin Routes
 Route::middleware(['auth.role:admin'])->group(function () {

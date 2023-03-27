@@ -61,7 +61,7 @@
                                 class="form-label">{{__('messages.image')}}</label>
                             <input class="form-control" type="file" name="image" id="file">
                         </div>
-                        <input type="submit" class="btn btn-primary mt-2" value="Update" />
+                        <input type="submit" class="btn btn-primary mt-2" value="{{__('messages.update_part')}}" />
                     </form>
                 </div>
             </div>

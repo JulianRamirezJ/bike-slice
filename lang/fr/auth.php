@@ -16,4 +16,15 @@ return [
     'failed' => 'Ces identifiants ne correspondent pas à nos enregistrements.',
     'password' => 'Le mot de passe fourni est incorrect.',
     'throttle' => 'Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.',
+    'Email Address' => 'Adresse email',
+    'Password' => 'Mot de passe',
+    'Remember Me' => 'Se souvenir de moi',
+    'Login' => 'Connexion',
+    'Forgot Your Password?' => 'Mot de passe oublié ?',
+    'Reset Password' => 'Réinitialiser le mot de passe',
+    'Confirm Password' => 'Confirmer le mot de passe',
+    'Send Password Reset Link' => 'Envoyer le lien de réinitialisation de mot de passe',
+    'Location Adress' => 'Location Adress',
+    'Name' =>  'Nom',
+    'Register' => "S'inscrire"
 ];

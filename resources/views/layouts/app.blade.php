@@ -22,6 +22,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto">
+        <a class="nav-link text-white" href="{{ route('cart.index') }}">{{__('messages.nav.item.cart')}}</a>
         @guest
           <a class="nav-link text-white" href="{{ route('login') }}">{{__('messages.nav.item.login')}}</a>
           <a class="nav-link text-white" href="{{ route('register') }}">{{__('messages.nav.item.signup')}}</a>
@@ -33,7 +34,6 @@
             <a class="nav-link text-white" href="{{ route('admin.part.showall') }}">{{__('messages.nav.item.parts')}}</a>
           @elseif(Auth::user()->getRole() == 'user')
             {{-- Links to user routes --}}
-            <a class="nav-link text-white" href="#">{{__('messages.nav.item.cart')}}</a>
             <a class="nav-link text-white" href="{{ route('user.bike.showAll')}}">{{__('messages.nav.item.your_bikes')}}</a>
             <a class="nav-link text-white" href="#">{{__('messages.nav.item.user_config')}}</a>
           @endif
@@ -58,7 +58,7 @@
   <div class="py-4 bg-secondary text-white">
     <div class="container text-center">
       <small>
-        © 2023 Bike Slice. All rights reserved.
+        © 2023 Bike Slice. {{__('messages.All rights reserved')}}
       </small>
     </div>
   </div>
