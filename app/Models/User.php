@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -71,6 +70,18 @@ class User extends Authenticatable
         return $this->attributes['role'];
     }
 
+    public function getBalance(): int 
+    {
+        return $this->attributes['balance'];
+    }
+    public function setBalance(string $balance): void 
+    {
+        $this->attributes['balance'] = $balance;
+    }
+    public function getAddress(): string
+    {
+        return $this->attributes['address'];
+    }
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);

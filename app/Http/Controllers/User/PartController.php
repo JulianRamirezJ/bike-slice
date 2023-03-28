@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Part; 
 use \Illuminate\Http\RedirectResponse;
 use \Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Auth;
-use App\Interfaces\ImageStorage;
-use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 
 class PartController extends Controller
