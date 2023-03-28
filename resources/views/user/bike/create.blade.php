@@ -75,7 +75,7 @@
             </select>
             <div id="form_input_container">
                <label for="" class="form_label">{{__('messages.enter_bike_image')}}</label>
-               <input type="file" name="" class="bike_create_file"/>
+               <input type="file" name="image" class="bike_create_file"/>
             </div>
             <textarea name = "description" id="form_textarea"rows = "5" cols = "60"  value="{{ old('description') }}" placeholder="{{__('messages.enter_bike_description')}}" required></textarea>
             <input type="submit" class="btn btn-lg btn-success btn-center" value="{{ __('messages.send') }}"/>
