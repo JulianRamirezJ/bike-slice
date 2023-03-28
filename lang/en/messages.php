@@ -44,6 +44,7 @@ return [
     'brand' => 'Brand',
     'type' => 'Type',
     'price' => 'Price',
+    'name' => 'Name',
     'delete_part' => 'Delete Part',
     'update_part' => 'Update Part  ',
     'updated_part' => 'The part has been updated succesfully',
@@ -100,5 +101,11 @@ return [
     'Date' => 'Date',
     'Reviews' => 'Reviews',
     'All rights reserved' => 'All rights reserved',
+    'select_frame' => "Select a frame",
+    'select_wheel' => "Select a wheel",
+    'select_chain' => "Select a chain",
+    'select_handlebar' => "Select a handlebar",
+    'select_pedal' => "Select a pedal",
+    'select_saddle' => "Select a saddle",
 
 ];
