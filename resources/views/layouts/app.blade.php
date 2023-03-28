@@ -36,7 +36,7 @@
             {{-- Links to user routes --}}
             <a class="nav-link text-white" href="{{ route('user.bike.showAll')}}">{{__('messages.nav.item.your_bikes')}}</a>
             <a class="nav-link text-white" href="{{ route('user.part.showall') }}">{{__('messages.nav.item.parts')}}</a>
-            <a class="nav-link text-white" href="#">{{__('messages.nav.item.user_config')}}</a>
+            <a class="nav-link text-white" href="{{ route('user.conf') }}">{{__('messages.nav.item.user_config')}}</a>
           @endif
           <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">
             <a role="button" class="nav-link text-white me-2"
