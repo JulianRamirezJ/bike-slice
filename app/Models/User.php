@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 use App\Models\Review;
 use App\Models\Order;
 use App\Models\Bike;
+use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
@@ -70,6 +71,18 @@ class User extends Authenticatable
         return $this->attributes['role'];
     }
 
+<<<<<<< HEAD
+    public function getName(): string
+    {
+        return $this->attributes['name'];
+    }
+
+    public function getEmail(): string
+    {
+        return $this->attributes['email'];
+    }
+
+=======
     public function getBalance(): int 
     {
         return $this->attributes['balance'];
@@ -78,10 +91,21 @@ class User extends Authenticatable
     {
         $this->attributes['balance'] = $balance;
     }
+>>>>>>> c6eb92d99e70295a75e3a8a7b9c2042bc8e78e2a
     public function getAddress(): string
     {
         return $this->attributes['address'];
     }
+<<<<<<< HEAD
+
+    public function getBalance(): int
+    {
+        return $this->attributes['balance'];
+    }
+
+
+=======
+>>>>>>> c6eb92d99e70295a75e3a8a7b9c2042bc8e78e2a
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
@@ -124,4 +148,21 @@ class User extends Authenticatable
         $this->bikes = $bikes;
     }
 
+    public static function validateUpdate(Request $request)
+    {
+        if($request['password'] != null){
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255'],
+                'password' => ['required', 'string', 'min:8'],
+                'address' => ['required', 'string', 'max:255'],
+            ]);
+        }else{
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255'],
+                'address' => ['required', 'string', 'max:255'],
+            ]);
+        }
+    }
 }

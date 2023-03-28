@@ -110,4 +110,16 @@ return [
     'select_pedal' => "Select a pedal",
     'select_saddle' => "Select a saddle",
 
+    # user MESSAGES
+
+    'user_select_name' => "Change name",
+    'user_select_email' => "Change email",
+    'user_select_address' => "Change address",
+    'user_select_balance' => "Change balance",
+    'user_select_password' => "Change password",
+    'user_update' => "Update info",
+    'user_update_info' => "Update users info",
+    "user_updated" => "User updated succesfully"
+
 ];
+
