@@ -19,7 +19,7 @@ class Item extends Model
      * $this->bike - Bike - contains the associated bike
      */
 
-    protected $fillable = ['quantity'];
+    protected $fillable = ['quantity','order_id','bike_id'];
 
     public function getId(): int
     {
@@ -47,6 +47,14 @@ class Item extends Model
     {
         $this->order = $order;
     }
+    public function getOrderId(): int 
+    {
+        return $this->attributes['order_id'];
+    }
+    public function setOrderId(int $oId): void
+    {
+        $this->attributes['order_id'] = $oId;
+    }
     public function bike(): BelongsTo 
     {
         return $this->belongsTo(Bike::class);
@@ -58,5 +66,13 @@ class Item extends Model
     public function setBike(Bike $bike): void
     {
         $this->bike = $bike;
+    }
+    public function getBikeId(): int 
+    {
+        return $this->attributes['bike_id'];
+    }
+    public function setBikeId(int $bId): void
+    {
+        $this->attributes['bike_id'] = $bId;
     }
 }

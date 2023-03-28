@@ -90,6 +90,8 @@ return [
 'cart.button.remove_all' => 'Eliminar todos los productos del carrito',
 'cart.buy.note' => 'Nota: Debe iniciar sesión para realizar la compra',
 'cart.buy.button.title' => 'Comprar',
+'cart.balance.error' => 'No tienes fondos suficientes',
+'cart.success' => 'Compra realizada con éxito',
 'Select a bike' => 'Seleccionar una bicicleta',
 'Delete this review' => 'Eliminar esta reseña',
 'User' => 'Usuario',

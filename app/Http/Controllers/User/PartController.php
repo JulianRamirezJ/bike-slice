@@ -6,7 +6,10 @@ use Illuminate\View\View;
 use App\Models\Part; 
 use \Illuminate\Http\RedirectResponse;
 use \Illuminate\Database\Eloquent\ModelNotFoundException;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Redirect;
+=======
+>>>>>>> c6eb92d99e70295a75e3a8a7b9c2042bc8e78e2a
 use App\Http\Controllers\Controller;
 
 class PartController extends Controller

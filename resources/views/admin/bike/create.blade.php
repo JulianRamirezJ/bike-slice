@@ -14,7 +14,7 @@
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
-        @endif
+         @endif
       @if($errors->any())
          <ul id="error_list">
             @foreach($errors->all() as $error)
