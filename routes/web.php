@@ -56,6 +56,8 @@ Route::middleware(['auth.role:user'])->group(function () {
     Route::get('user/review/create/{id}', 'App\Http\Controllers\User\ReviewController@create')->name("user.review.create");
     Route::post('user/review/save/{id}', 'App\Http\Controllers\User\ReviewController@save')->name("user.review.save");
     Route::delete('user/review/delete/{id}', 'App\Http\Controllers\User\ReviewController@delete')->name("user.review.delete");
+    Route::get('/user/part/', 'App\Http\Controllers\User\PartController@showAll')->name('user.part.showall');
+    Route::get('/user/part/show/{id}', 'App\Http\Controllers\User\PartController@show')->name('user.part.show');
 });
 
 //Auth routes

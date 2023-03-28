@@ -27,7 +27,7 @@
                 @endif
                 @if ($viewData["bike"]->getUser()->getRole() === 'user')
                     @foreach($viewData["bike"]->getAssemblies() as $assemblie)
-                        <p class="show_info_general">{{$assemblie->getPart()->getName()}}</p>
+                        <a href="{{ route('user.part.show' , ['id'=>$assemblie->getPart()->getId()])}}"><p class="show_info_general">{{$assemblie->getPart()->getName()}}</p></a>
                     @endforeach
                     <h1>User</h1>
                 @else

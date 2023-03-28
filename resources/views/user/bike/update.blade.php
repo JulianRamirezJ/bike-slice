@@ -58,37 +58,37 @@
                @endif
             </select>
             <select name="frame"  id="form_select" value="{{ old('frame') }}" required>
-               <option value="" disabled selected>Select a frame </option>
+               <option value="" disabled selected>{{__('messages.select_frame')}}</option>
                @foreach ($viewData["part_types"]["frame"] as $part)
                   <option value="{{$part->getId()}}">{{$part->getName()}}</option>
                @endforeach
             </select>
             <select name="wheel" id="form_select" value="{{ old('wheel') }}" required>
-               <option value="" disabled selected>Select a wheel </option>
+               <option value="" disabled selected>{{__('messages.select_wheel')}}</option>
                @foreach ($viewData["part_types"]["wheel"] as $part)
                   <option  value="{{$part->getId()}}">{{$part->getName()}}</option>
                @endforeach
             </select>
             <select name="saddle" id="form_select" value="{{ old('sadle') }}" required>
-               <option value="" disabled selected>Select a saddle </option>
+               <option value="" disabled selected>{{__('messages.select_saddle')}}</option>
                @foreach ($viewData["part_types"]["saddle"] as $part)
                   <option  value="{{$part->getId()}}">{{$part->getName()}}</option>
                @endforeach
             </select>
             <select name="chain" id="form_select" value="{{ old('chain') }}" required>
-               <option value="" disabled selected>Select a chain </option>
+               <option value="" disabled selected>{{__('messages.select_chain')}}</option>
                @foreach ($viewData["part_types"]["chain"] as $part)
                   <option  value="{{$part->getId()}}">{{$part->getName()}}</option>
                @endforeach
             </select>
             <select name="handlebar" id="form_select" value="{{ old('handlebar') }}" required>
-               <option value="" disabled selected>Select a handlebar </option>
+               <option value="" disabled selected>{{__('messages.select_handlebar')}}</option>
                @foreach ($viewData["part_types"]["handlebar"] as $part)
                   <option  value="{{$part->getId()}}">{{$part->getName()}}</option>
                @endforeach
             </select>
             <select name="pedal" id="form_select" value="{{ old('pedal') }}" required>
-               <option value="" disabled selected>Select a pedal </option>
+               <option value="" disabled selected>{{__('messages.select_pedal')}}</option>
                @foreach ($viewData["part_types"]["pedal"] as $part)
                   <option  value="{{$part->getId()}}">{{$part->getName()}}</option>
                @endforeach

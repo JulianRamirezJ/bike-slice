@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Part; 
+use App\Models\Assembly; 
 use \Illuminate\Http\RedirectResponse;
 use \Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
@@ -64,8 +65,16 @@ class PartController extends Controller
 
     public function update(string $id, Request $request)
     {
-        Part::findorfail($id);
+        $part = Part::findorfail($id);
         Part::validateUpdate($request);
+        $old_price = $part->getPrice();
+        $new_price = $request['price'];
+        $asemblies = Assembly::where('part_id', $part->getId())->get();
+        foreach($asemblies as $assembly){
+            $bike = $assembly->getBike();
+            $bike->setPrice($bike->getPrice() - $old_price + $new_price);
+            $bike->save();
+        }
         if ($request->file('image')) {
             $storeInterface = app(ImageStorage::class);
             $storeInterface->store($request);
