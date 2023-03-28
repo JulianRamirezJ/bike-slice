@@ -25,7 +25,7 @@ return [
     'Confirm Password' => 'Confirm Password',
     'Send Password Reset Link' => 'Send Password Reset Link',
     'Location Adress' => 'Location Adress',
-    'Name' =>  'Name',
-    'Register' => 'Register'
+    'Name' => 'Name',
+    'Register' => 'Register',
 
 ];

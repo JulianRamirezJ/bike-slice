@@ -25,6 +25,6 @@ return [
     'Confirm Password' => 'Confirmer le mot de passe',
     'Send Password Reset Link' => 'Envoyer le lien de réinitialisation de mot de passe',
     'Location Adress' => 'Location Adress',
-    'Name' =>  'Nom',
-    'Register' => "S'inscrire"
+    'Name' => 'Nom',
+    'Register' => "S'inscrire",
 ];

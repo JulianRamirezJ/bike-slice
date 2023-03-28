@@ -1,16 +1,15 @@
 <?php
 
-
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bike;
-use App\Models\Order;
 use App\Models\Item;
+use App\Models\Order;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use \Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -59,8 +58,9 @@ class OrderController extends Controller
                     $part = $assembly->getPart();
                     $part->setStock($part->getStock() - 1);
                     $part->save();
-                    if ($part->getStock() < $min)
+                    if ($part->getStock() < $min) {
                         $min = $part->getStock();
+                    }
                 }
                 $bike->setStock($min);
                 $bike->save();
@@ -68,6 +68,7 @@ class OrderController extends Controller
         }
 
         $request->session()->forget('cart_bike_data');
+
         return back()->with('status', 'success');
     }
 }

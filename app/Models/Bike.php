@@ -2,27 +2,23 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Collection;
-use App\Models\User;
-use App\Models\Item;
-use App\Models\Assembly;
-use App\Models\Review; 
+use Illuminate\Http\Request;
 
 class Bike extends Model
 {
     /**
      * BIKE ATTRIBUTES
      * $this->attributes['id'] - int - contains the bike PK
-     * $this->attributes['name'] - string - contains name of the bike 
-     * $this->attributes['price'] - int - contains price of the bike 
-     * $this->attributes['stock'] - int - contains stock of the bike 
+     * $this->attributes['name'] - string - contains name of the bike
+     * $this->attributes['price'] - int - contains price of the bike
+     * $this->attributes['stock'] - int - contains stock of the bike
      * $this->attributes['shareable'] - bool - tells if a bike can be seen by other users
      * $this->attributes['type'] - string - contains the type of bike (prefabricated or created by users)
-     * $this->attributes['brand'] - string - contains the brand of the bike 
+     * $this->attributes['brand'] - string - contains the brand of the bike
      * $this->attributes['description'] - string - contains a description of the bike
      * $this->attributes['img'] - string - contains name of the bikes image
      * $this->attributes['user_id'] - string - id of user who created the bike
@@ -32,7 +28,6 @@ class Bike extends Model
      * $this->assemblies - Assembly[] - contains the associated assemblies
      * $this->items - Item[] - contains the associated items
      */
-
     protected $fillable = ['price', 'img', 'name', 'stock', 'share', 'type', 'brand', 'description', 'user_id'];
 
     public function getId(): int
@@ -138,46 +133,46 @@ class Bike extends Model
     public static function validateUserCreation(Request $request)
     {
         $request->validate([
-            "name" => "required|max:30",
-            "type" => "required",
-            "image" => "required|mimes:jpg,png,jpeg|max:5048",
-            "description" => "required|max:1024"
+            'name' => 'required|max:30',
+            'type' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+            'description' => 'required|max:1024',
         ]);
     }
 
     public static function validateAdminCreation(Request $request)
     {
         $request->validate([
-            "name" => "required|max:30",
-            "type" => "required",
-            "price" => "required",
-            "stock" => "required",
-            "brand" => "required",
-            "image" => "required|mimes:jpg,png,jpeg|max:5048",
-            "description" => "required|max:1024"
+            'name' => 'required|max:30',
+            'type' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'brand' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+            'description' => 'required|max:1024',
         ]);
     }
 
     public static function validateUserUpdate(Request $request)
     {
         $request->validate([
-            "name" => "required|max:30",
-            "type" => "required",
-            "image" => "mimes:jpg,png,jpeg|max:5048",
-            "description" => "required|max:1024"
+            'name' => 'required|max:30',
+            'type' => 'required',
+            'image' => 'mimes:jpg,png,jpeg|max:5048',
+            'description' => 'required|max:1024',
         ]);
     }
 
     public static function validateAdminUpdate(Request $request)
     {
         $request->validate([
-            "name" => "required|max:30",
-            "type" => "required",
-            "price" => "required",
-            "stock" => "required",
-            "brand" => "required",
-            "image" => "mimes:jpg,png,jpeg|max:5048",
-            "description" => "required|max:1024"
+            'name' => 'required|max:30',
+            'type' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'brand' => 'required',
+            'image' => 'mimes:jpg,png,jpeg|max:5048',
+            'description' => 'required|max:1024',
         ]);
     }
 
@@ -185,34 +180,42 @@ class Bike extends Model
     {
         return $this->belongsTo(User::class);
     }
+
     public function getUser(): User
     {
         return $this->user;
     }
+
     public function setUser(User $user): void
     {
         $this->user = $user;
     }
+
     public function assemblies(): HasMany
     {
         return $this->hasMany(Assembly::class);
     }
+
     public function getAssemblies(): Collection
     {
         return $this->assemblies;
     }
+
     public function setAssemblies(Collection $assemblies): void
     {
         $this->assemblies = $assemblies;
     }
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }
+
     public function getItems(): Collection
     {
         return $this->items;
     }
+
     public function setItems(Collection $items): void
     {
         $this->items = $items;
@@ -233,9 +236,8 @@ class Bike extends Model
         $this->reviews = $reviews;
     }
 
-    public function hasReviewFromUser(int $user_id) : bool
+    public function hasReviewFromUser(int $user_id): bool
     {
         return $this->reviews()->where('user_id', $user_id)->exists();
     }
-
 }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
-use Illuminate\View\View;
-use App\Models\Review; 
-use \Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Review;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class ReviewController extends Controller
 {
@@ -16,7 +16,8 @@ class ReviewController extends Controller
         $viewData = [];
         $viewData['title'] = __('messages.title_create');
         $viewData['bike_id'] = $id;
-        return view('user.review.create')->with('viewData', $viewData);;
+
+        return view('user.review.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request, int $id): RedirectResponse
@@ -30,14 +31,14 @@ class ReviewController extends Controller
             'user_id' => Auth::id(),
         ]);
         $viewData['title'] = 'Sucessfully created';
+
         return redirect()->route('user.bike.show', ['id' => $id]);
     }
 
-    
     public function delete(int $id): RedirectResponse
     {
         Review::find($id)->delete();
+
         return back();
     }
-
 }

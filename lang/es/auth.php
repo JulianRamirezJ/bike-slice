@@ -21,11 +21,11 @@ return [
     'Remember Me' => 'Recordarme',
     'Login' => 'Iniciar sesión',
     'Forgot Your Password?' => '¿Olvidaste tu contraseña?',
-    'Reset Password' =>  'Resetear Contraseña',
+    'Reset Password' => 'Resetear Contraseña',
     'Confirm Password' => 'Confirmar contraseña',
     'Send Password Reset Link' => 'Enviar enlace de recuperación',
     'Location Adress' => 'Dirección',
-    'Name' =>  'Nombre',
-    'Register' => 'Registrarse'
+    'Name' => 'Nombre',
+    'Register' => 'Registrarse',
 
 ];

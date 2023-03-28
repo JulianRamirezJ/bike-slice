@@ -12,7 +12,7 @@ return [
     'welcome_usr' => 'Welcome User',
     'welcome_admin' => 'Welcome User admin',
     //NAV MESSAGES
-    'nav.item.dashboard' => 'Dashboard',    
+    'nav.item.dashboard' => 'Dashboard',
     'nav.item.login' => 'LogIn',
     'nav.item.signup' => 'SignUp',
     'nav.item.bikes' => 'Bikes',
@@ -22,13 +22,13 @@ return [
     'nav.item.user_config' => 'User Config',
     'nav.item.logout' => 'LogOut',
     //Part MESSAGES
-    'created_succesfully'  => 'The new part has been created successfully',
+    'created_succesfully' => 'The new part has been created successfully',
     'create_parts' => 'Create Parts',
     'create_part' => 'Create new part',
     'show_part' => 'Show Part',
-    'view_parts' =>  'Show all Parts',
-    'enter_name'  => 'Enter name',
-    'enter_stock'  => 'Enter stock',
+    'view_parts' => 'Show all Parts',
+    'enter_name' => 'Enter name',
+    'enter_stock' => 'Enter stock',
     'enter_price' => 'Enter price',
     'enter_brand' => 'Enter brand',
     'select_type' => 'Select the type',
@@ -103,23 +103,22 @@ return [
     'Date' => 'Date',
     'Reviews' => 'Reviews',
     'All rights reserved' => 'All rights reserved',
-    'select_frame' => "Select a frame",
-    'select_wheel' => "Select a wheel",
-    'select_chain' => "Select a chain",
-    'select_handlebar' => "Select a handlebar",
-    'select_pedal' => "Select a pedal",
-    'select_saddle' => "Select a saddle",
+    'select_frame' => 'Select a frame',
+    'select_wheel' => 'Select a wheel',
+    'select_chain' => 'Select a chain',
+    'select_handlebar' => 'Select a handlebar',
+    'select_pedal' => 'Select a pedal',
+    'select_saddle' => 'Select a saddle',
 
-    # user MESSAGES
+    // user MESSAGES
 
-    'user_select_name' => "Change name",
-    'user_select_email' => "Change email",
-    'user_select_address' => "Change address",
-    'user_select_balance' => "Change balance",
-    'user_select_password' => "Change password",
-    'user_update' => "Update info",
-    'user_update_info' => "Update users info",
-    "user_updated" => "User updated succesfully"
+    'user_select_name' => 'Change name',
+    'user_select_email' => 'Change email',
+    'user_select_address' => 'Change address',
+    'user_select_balance' => 'Change balance',
+    'user_select_password' => 'Change password',
+    'user_update' => 'Update info',
+    'user_update_info' => 'Update users info',
+    'user_updated' => 'User updated succesfully',
 
 ];
-

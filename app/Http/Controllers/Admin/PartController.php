@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Interfaces\ImageStorage;
+use App\Models\Assembly;
+use App\Models\Part;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\Part; 
-use App\Models\Assembly; 
-use \Illuminate\Http\RedirectResponse;
-use \Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Interfaces\ImageStorage;
-use Illuminate\Support\Facades\Redirect;
-use App\Http\Controllers\Controller;
 
 class PartController extends Controller
 {
@@ -21,17 +20,19 @@ class PartController extends Controller
         $viewData = [];
         $viewData['title'] = __('messages.view_parts');
         $viewData['parts'] = Part::all();
-        return view('admin.part.showAll')->with("viewData", $viewData);
+
+        return view('admin.part.showAll')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View | RedirectResponse
+    public function show(string $id): View|RedirectResponse
     {
         try {
             $viewData = [];
             $viewData['part'] = Part::findOrFail($id);
-            $viewData["type_options"] = PartController::$type_options;
-            $viewData['title'] =  __('messages.show_part');
-            return view('admin.part.show')->with("viewData", $viewData);
+            $viewData['type_options'] = PartController::$type_options;
+            $viewData['title'] = __('messages.show_part');
+
+            return view('admin.part.show')->with('viewData', $viewData);
         } catch (ModelNotFoundException $e) {
             return back();
         }
@@ -40,8 +41,9 @@ class PartController extends Controller
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] =  __('messages.create_parts');
-        return view('admin.part.create')->with("viewData", $viewData);
+        $viewData['title'] = __('messages.create_parts');
+
+        return view('admin.part.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request): RedirectResponse
@@ -57,9 +59,10 @@ class PartController extends Controller
             'price' => $input['price'],
             'type' => $input['type'],
             'brand' => $input['brand'],
-            'img'=> $input['image']
+            'img' => $input['image'],
         ]);
-        return back()->with('status', __('messages.created_succesfully'));;
+
+        return back()->with('status', __('messages.created_succesfully'));
     }
 
     public function update(string $id, Request $request)
@@ -69,10 +72,10 @@ class PartController extends Controller
         $old_price = $part->getPrice();
         $new_price = $request['price'];
         $asemblies = Assembly::where('part_id', $part->getId())->get();
-        foreach($asemblies as $assembly){
+        foreach ($asemblies as $assembly) {
             $bike = $assembly->getBike();
             $bike->setPrice($bike->getPrice() - $old_price + $new_price);
-            if($bike->getStock() > $request['stock']){
+            if ($bike->getStock() > $request['stock']) {
                 $bike->setStock($request['stock']);
             }
             $bike->save();
@@ -82,15 +85,17 @@ class PartController extends Controller
             $storeInterface->store($request);
             $request['img'] = $request->file('image')->getClientOriginalName();
             Part::where('id', $id)->update($request->only(['name', 'price', 'stock', 'type', 'brand', 'img']));
-        }else{
+        } else {
             Part::where('id', $id)->update($request->only(['name', 'price', 'stock', 'type', 'brand']));
         }
-        return back()->with('status', 'updated');;
+
+        return back()->with('status', 'updated');
     }
 
     public function remove(string $id): RedirectResponse
     {
         Part::findOrFail($id)->delete();
-        return redirect("/admin/part");
+
+        return redirect('/admin/part');
     }
 }

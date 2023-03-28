@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Bikes;
 
-use Livewire\Component;
 use App\Models\Bike;
+use Livewire\Component;
 
 class SearchBike extends Component
 {
@@ -13,13 +13,14 @@ class SearchBike extends Component
     {
         $viewData = [];
         $viewData['bikes'] = [];
-        if(!empty($this->search)){
+        if (! empty($this->search)) {
             $viewData['bikes'] = Bike::where('name', 'LIKE', '%'.$this->search.'%')
                                 ->orWhere('brand', 'LIKE', '%'.$this->search.'%')
                                 ->get();
-        }else{
+        } else {
             $viewData['bikes'] = Bike::all();
         }
+
         return view('livewire.bikes.search-bike')->with('viewData', $viewData);
     }
 }

@@ -3,10 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use App\Models\User;
-use App\Models\Bike;
+use Illuminate\Http\Request;
 
 class Review extends Model
 {
@@ -14,13 +12,12 @@ class Review extends Model
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the Review PK
      * $this->attributes['stars'] - int - contains the stars of the review
-     * $this->attributes['description'] - string - contains the description of the review 
+     * $this->attributes['description'] - string - contains the description of the review
      * $this->attributes['created_at'] - string - contains date of creation
      * $this->attributes['updated_at '] - string - contains date of last modification
      * $this->user - User - contains the associated user
      * $this->bike - Bike - contains the associated bike
      */
-
     protected $fillable = ['stars', 'description', 'user_id', 'bike_id'];
 
     public function getId(): int
@@ -57,33 +54,39 @@ class Review extends Model
     {
         return $this->attributes['updated_at'];
     }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
+
     public function getUser(): User
     {
         return $this->user;
     }
+
     public function setUser(User $user): void
     {
         $this->user = $user;
     }
+
     public function bike(): BelongsTo
     {
         return $this->belongsTo(Bike::class);
     }
+
     public function getBike(): Bike
     {
         return $this->bike;
     }
+
     public function setBike(Bike $bike): void
     {
         $this->bike = $bike;
     }
 
     public static function validate(Request $request): void
-    {   
+    {
         $request->validate([
             'stars' => 'required|numeric|min:0|max:5',
             'description' => 'required|string|max:255',
