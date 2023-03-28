@@ -93,6 +93,8 @@ return [
     'cart.button.remove_all' => 'Remove all products from cart',
     'cart.buy.note' => 'Note: You must be logged in to purchase',
     'cart.buy.button.title' => 'Buy',
+    'cart.balance.error' => 'You do not have sufficient funds',
+    'cart.success' => 'Successful purchase',
     'Select a bike' => 'Select a bike',
     'Delete this review' => 'Delete this review',
     'User' => 'User',

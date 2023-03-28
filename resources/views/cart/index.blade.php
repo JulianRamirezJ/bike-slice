@@ -12,8 +12,22 @@
             @guest
                 <p class="text-danger mt-3">{{__('messages.cart.buy.note')}}</p>
             @else 
-                <a class="btn btn-success mt-3" href="#">{{__('messages.cart.buy.button.title')}}</a>
+                @if($viewData["cartBike"])
+                    <form method="POST" id="create_order" action="{{ route('user.order.save') }}">
+                        @csrf
+                        <button class="btn btn-success mt-3" href="#">{{__('messages.cart.buy.button.title')}}</button>
+                    </form>
+                @endif
             @endguest
+            @if(session('status')=== 'balance_problem')
+                <div class="alert alert-danger mt-2">
+                    {{__('messages.cart.balance.error')}}
+                </div>
+            @elseif(session('status') === 'success')
+                <div class="alert alert-success mt-2">
+                    {{__('messages.cart.success')}}
+                </div>
+            @endif
             <div class="container mx-5 d-flex justify-content-center">
                 <ol class="list-group list-group-numbered w-50 my-2">
                     @foreach($viewData["cartBike"] as $key => $bike)
