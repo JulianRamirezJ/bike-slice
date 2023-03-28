@@ -73,6 +73,9 @@ class PartController extends Controller
         foreach($asemblies as $assembly){
             $bike = $assembly->getBike();
             $bike->setPrice($bike->getPrice() - $old_price + $new_price);
+            if($bike->getStock() > $request['stock']){
+                $bike->setStock($request['stock']);
+            }
             $bike->save();
         }
         if ($request->file('image')) {
