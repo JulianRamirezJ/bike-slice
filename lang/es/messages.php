@@ -98,6 +98,22 @@ return [
 'Date' => 'Fecha',
 'Reviews' => 'Reseñas',
 'All rights reserved' => 'Todos los derechos reservados',
+'select_frame' => "Seleccionar a marco",
+'select_wheel' => "Seleccionar a llantas",
+'select_chain' => "Seleccionar a cadena",
+'select_handlebar' => "Seleccionar a manubrio",
+'select_pedal' => "Seleccionar a pedal",
+'select_saddle' => "Seleccionar a sillin",
 
+# user MESSAGES
+
+'user_select_name' => "Cambiar nombre",
+'user_select_email' => "Cambiar email",
+'user_select_address' => "Cambiar direccion",
+'user_select_balance' => "Cambiar balance",
+'user_select_password' => "Cambiar clave",
+'user_update' => "Actualizar informacion",
+'user_update_info' => "Actualizar informacion de usuario",
+"user_updated" => "Usuario actualizado satisfactoriamente"
 
 ];

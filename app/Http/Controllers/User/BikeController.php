@@ -85,14 +85,14 @@ class BikeController extends Controller
             Bike::where('id', $id)->update($request->only(['name', 'stock', 'price', 'share', 'type', 'brand','description', 'img'])); 
             foreach($assemblies as $index=>$assembly){
                 $part = Part::where('id',$parts[$index])->get();
-                $assembly->setPart($part[0]);
+                $assembly->setPartId($part[0]);
                 $assembly->save();
             }
         }else{
             Bike::where('id', $id)->update($request->only(['name', 'stock', 'price', 'share', 'type', 'brand','description']));         
             foreach($assemblies as $index=>$assembly){
                 $part = Part::where('id',$parts[$index])->get();
-                $assembly->setPart($part[0]);
+                $assembly->setPartId($part[0]);
                 $assembly->save();
             }
         }

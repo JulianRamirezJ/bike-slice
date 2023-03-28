@@ -38,6 +38,10 @@ class Assembly extends Model
     }
     public function setBike(Bike $bike): void
     {
+        $this->bike = $bike;
+    }
+    public function setBikeId(Bike $bike): void
+    {
         $this->bike_id = $bike->getId();
     }
     public function part(): BelongsTo
@@ -49,6 +53,10 @@ class Assembly extends Model
         return $this->part;
     }
     public function setPart(Part $part): void
+    {
+        $this->part = $part;
+    }
+    public function setPartId(Part $part): void
     {
         $this->part_id = $part->getId();
     }
