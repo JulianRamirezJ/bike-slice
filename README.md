@@ -9,6 +9,7 @@ permitirá utilizar las funcionalidades de un usuario normal.
 De la misma manera si quiere acceder como administrador, puede utilizar las siguientes credenciales:
  - Correo: dcorreab@eafit.edu.co
  - Contraseña: 12345678
+ - 
 La página la puede acceder a través del enlace bikeslice.shop 
 
 
