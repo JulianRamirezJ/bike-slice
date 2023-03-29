@@ -39,16 +39,18 @@
                 </div>
             </div>
         </div>
-        <div id="options_container">
-            <form action="{{ route('user.bike.remove', ['id'=>$viewData['bike']->getId()])}}" method="post">
-                <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_delete')}}</button>
-                @csrf
-                @method('delete')
-            </form>
-            <a href="{{ route('user.bike.update', ['id'=>$viewData['bike']->getId()])}}">
-                <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_update')}}</button>
-            </a>
-        </div>
+        @if ($viewData["user_id"]!=0 && $viewData["user_id"]==$viewData["bike"]->getUser()->getId())
+            <div id="options_container" class="mt-5">
+                <form action="{{ route('user.bike.remove', ['id'=>$viewData['bike']->getId()])}}" method="post">
+                    <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_delete')}}</button>
+                    @csrf
+                    @method('delete')
+                </form>
+                <a href="{{ route('user.bike.update', ['id'=>$viewData['bike']->getId()])}}">
+                    <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_update')}}</button>
+                </a>
+            </div>
+        @endif
     </div>
     <div class="container mt-5">
                 <div class="row">
