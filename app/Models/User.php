@@ -70,19 +70,14 @@ class User extends Authenticatable
     {
         return $this->attributes['role'];
     }
-
-<<<<<<< HEAD
     public function getName(): string
     {
         return $this->attributes['name'];
     }
-
     public function getEmail(): string
     {
         return $this->attributes['email'];
     }
-
-=======
     public function getBalance(): int 
     {
         return $this->attributes['balance'];
@@ -91,21 +86,10 @@ class User extends Authenticatable
     {
         $this->attributes['balance'] = $balance;
     }
->>>>>>> c6eb92d99e70295a75e3a8a7b9c2042bc8e78e2a
     public function getAddress(): string
     {
         return $this->attributes['address'];
     }
-<<<<<<< HEAD
-
-    public function getBalance(): int
-    {
-        return $this->attributes['balance'];
-    }
-
-
-=======
->>>>>>> c6eb92d99e70295a75e3a8a7b9c2042bc8e78e2a
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
@@ -122,7 +106,6 @@ class User extends Authenticatable
     {
         return $this->reviews()->where('bike_id', $bike_id)->exists();
     }
-
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
