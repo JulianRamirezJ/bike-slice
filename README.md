@@ -12,7 +12,8 @@ De la misma manera si quiere acceder como administrador, puede utilizar las sigu
 La página la puede acceder a través del enlace bikeslice.shop 
 
 
-Para lanzar el proyecto debe asegurar primero que todo que se tengan todas las dependencias de laravel instaladas.
+
+#Para lanzar el proyecto debe asegurar primero que todo que se tengan todas las dependencias de laravel instaladas.
 
 De igual modo debe tener livewire instalado.
 
