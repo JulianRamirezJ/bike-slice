@@ -125,4 +125,16 @@ return [
     'user_updated' => 'Utilisateur mis à jour avec succès',
     'cart.balance.error' => "Vous n'avez pas suffisamment de fonds",
     'cart.success' => 'Achat réussi',
+    //Footer messages
+    'Usefull Links' => 'Liens utiles',
+    'Privacy Policy' => 'Politique de confidentialité',
+    'Terms and Conditions' => 'Conditions d\'utilisation',
+    'Contact' => 'Contact',
+    'Other sites' => 'Autres sites',
+    'Bike Slice on Facebook' => 'Bike Slice sur Facebook',
+    'Bike Slice on Twitter' => 'Bike Slice sur Twitter',
+    'Bike Slice on Instagram' => 'Bike Slice sur Instagram',
+    'Subscribe' => 'S\'abonner',
+    'Your email address' => 'Votre adresse e-mail',
+    'All rights reserved' => 'Tous droits réservés',
 ];

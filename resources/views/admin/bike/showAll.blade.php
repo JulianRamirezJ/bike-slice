@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts/admin')
 @section('title')
     {{$viewData["title"]}}
 @endsection
@@ -8,7 +8,7 @@
 @section('content')
 <div class="card">
   <div class="card-header">
-  <h1 class="text-center">{{ __('messages.bike_list') }}</h1>
+    <h1 class="text-center">{{ __('messages.bike_list') }}</h1>
     <div class="btn-container">
       <a href="{{ route('admin.bike.create') }}" class="btn btn-outline bg-success text-white btn-lg">
         {{ __('messages.create_bike') }}

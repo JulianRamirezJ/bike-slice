@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('layouts/admin')
 @section('title', $viewData['title'])
 @section('sectioncss')
-    <link href="{{ asset('/css/showAll.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/admin_showAll.css') }}" rel="stylesheet" />
 @endsection
 @section('content')
 <div class="card">
   <div class="card-header">
-    <h1 class="text-center">{{__('messages.view_parts') }}</h1>
+    <h1 class="text-center">{{ __('messages.view_parts') }}</h1>
     <div class="btn-container">
       <a href="{{ route('admin.part.create') }}" class="btn btn-outline bg-success text-white btn-lg">
-        {{__('messages.create_part') }}
+        {{ __('messages.create_part') }}
       </a>
     </div>
   </div>
@@ -21,9 +21,9 @@
           <th>{{ __('messages.bike_price') }}</th>
           <th>{{ __('messages.bike_brand') }}</th>
           <th>{{ __('messages.bike_type') }}</th>
-          <th>{{__('messages.bike_stock')}}</th>
+          <th>{{ __('messages.bike_stock') }}</th>
           <th>{{ __('messages.image') }}</th>
-          <th>{{__('messages.options')}}</th>
+          <th>{{ __('messages.options') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -38,7 +38,7 @@
             <td>
               <div class="btn-container">
                 <a href="{{ route('admin.part.show', ['id'=>$part->getId()]) }}" class="btn btn-primary">
-                  <i class="fas fa-edit fa-lg"></i>
+                <i class="fas fa-edit fa-lg"></i>
                 </a>
                 <form action="{{ route('admin.part.remove', ['id'=>$part->getId()])}}" method="post">
                   @csrf

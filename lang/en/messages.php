@@ -131,4 +131,17 @@ return [
     'user_update_info' => 'Update users info',
     'user_updated' => 'User updated succesfully',
 
+    //Footer messages
+    'Usefull Links' => 'Usefull Links',
+    'Privacy Policy' => 'Privacy Policy',
+    'Terms and Conditions' => 'Terms and Conditions',
+    'Contact' => 'Contact',
+    'Other sites' => 'Other sites',
+    'Bike Slice on Facebook' => 'Bike Slice on Facebook',
+    'Bike Slice on Twitter' => 'Bike Slice on Twitter',
+    'Bike Slice on Instagram' => 'Bike Slice on Instagram',
+    'Subscribe' => 'Subscribe',
+    'Your email address' => 'Your email address',
+    'All rights reserved' => 'All rights reserved',
+
 ];

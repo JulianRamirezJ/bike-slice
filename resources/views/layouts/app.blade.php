@@ -62,28 +62,28 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h5>Enlaces útiles</h5>
+        <h5>{{__('messages.Usefull Links')}}</h5>
         <ul class="list-unstyled">
-          <li><a href="#">Política de privacidad</a></li>
-          <li><a href="#">Términos y condiciones</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#">{{__('messages.Privacy Policy')}}</a></li>
+          <li><a href="#">{{__('messages.Terms and Conditions')}}</a></li>
+          <li><a href="#">{{__('messages.Contact')}}</a></li>
         </ul>
       </div>
       <div class="col-md-4">
-        <h5>Otros sitios</h5>
+        <h5>{{__('messages.Other sites')}}</h5>
         <ul class="list-unstyled">
-          <li><a href="#">Bike Slice en Facebook</a></li>
-          <li><a href="#">Bike Slice en Twitter</a></li>
-          <li><a href="#">Bike Slice en Instagram</a></li>
+          <li><a href="#">{{__('messages.Bike Slice on Facebook')}}k</a></li>
+          <li><a href="#">{{__('messages.Bike Slice on Twitter')}}</a></li>
+          <li><a href="#">{{__('messages.Bike Slice on Instagram')}}</a></li>
         </ul>
       </div>
       <div class="col-md-4">
-        <h5>Suscríbete</h5>
+        <h5>{{__('messages.Subscribe')}}</h5>
         <form>
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Tu correo electrónico">
+            <input type="email" class="form-control" placeholder="{{__('messages.Your email address')}}">
           </div>
-          <button type="submit" class="btn btn-outline-light">Suscríbete</button>
+          <button type="submit" class="btn btn-outline-light">{{__('messages.Subscribe')}}</button>
         </form>
       </div>
     </div>
