@@ -111,6 +111,10 @@ return [
     'Bike creation' => 'Crear bicicleta',
     'Sucessfully created' => 'Creado exitosamente',
     'Cart' => 'Carro',
+    'name' => 'Nombre',
+    'image' => 'Imagen',
+    'options' => 'Opciones',
+    'bike_list' => 'Lista de Bicicletas',
 
     // user MESSAGES
 

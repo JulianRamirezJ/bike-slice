@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
   @yield('sectioncss','')
   <title>@yield('title', __('messages.bike_slice'))</title>
@@ -56,13 +58,41 @@
   </div>
 
   <!-- Footer -->
-  <div class="py-4 bg-secondary text-white">
-    <div class="container text-center">
-      <small>
-        © 2023 Bike Slice. {{__('messages.All rights reserved')}}
-      </small>
+  <footer class="py-4 bg-secondary text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Enlaces útiles</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Otros sitios</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Bike Slice en Facebook</a></li>
+          <li><a href="#">Bike Slice en Twitter</a></li>
+          <li><a href="#">Bike Slice en Instagram</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Suscríbete</h5>
+        <form>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Tu correo electrónico">
+          </div>
+          <button type="submit" class="btn btn-outline-light">Suscríbete</button>
+        </form>
+      </div>
     </div>
+    <hr>
+    <p class="text-center">
+      © 2023 Bike Slice. {{__('messages.All rights reserved')}}
+    </p>
   </div>
+</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous">

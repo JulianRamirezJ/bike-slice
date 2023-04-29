@@ -114,6 +114,11 @@ return [
     'Bike creation' => 'Bike creation',
     'Sucessfully created' => 'Sucessfully created',
     'Cart' => 'Cart',
+    'name' => 'Name',
+    'image' => 'Image',
+    'options' => 'Options',
+    'bike_list' => 'Bike list',
+
 
     // user MESSAGES
 
