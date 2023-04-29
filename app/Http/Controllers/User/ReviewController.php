@@ -30,7 +30,7 @@ class ReviewController extends Controller
             'bike_id' => $id,
             'user_id' => Auth::id(),
         ]);
-        $viewData['title'] = 'Sucessfully created';
+        $viewData['title'] = __('messages.Sucessfully created');
 
         return redirect()->route('user.bike.show', ['id' => $id]);
     }

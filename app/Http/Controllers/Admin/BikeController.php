@@ -17,7 +17,7 @@ class BikeController extends Controller
     public function showAll(): View
     {
         $viewData['bikes'] = Bike::all();
-        $viewData['title'] = 'Inventory';
+        $viewData['title'] = __('messages.Inventory');
 
         return view('admin.bike.showAll')->with('viewData', $viewData);
     }
@@ -32,7 +32,7 @@ class BikeController extends Controller
 
     public function update(string $id): View
     {
-        $viewData['title'] = 'Bike update';
+        $viewData['title'] = __('messages.Bike update');
         $viewData['bike'] = Bike::findOrFail($id);
         $parts = Part::get();
         $viewData['part_types'] = [
@@ -81,7 +81,7 @@ class BikeController extends Controller
 
     public function create(): View
     {
-        $viewData['title'] = 'Bike creation';
+        $viewData['title'] = _('messages.Bike creation');
 
         return view('admin.bike.create')->with('viewData', $viewData);
     }

@@ -109,6 +109,11 @@ return [
     'select_handlebar' => 'Select a handlebar',
     'select_pedal' => 'Select a pedal',
     'select_saddle' => 'Select a saddle',
+    'Inventory' => 'Inventory',
+    'Bike update' => 'Bike update',
+    'Bike creation' => 'Bike creation',
+    'Sucessfully created' => 'Sucessfully created',
+    'Cart' => 'Cart',
 
     // user MESSAGES
 

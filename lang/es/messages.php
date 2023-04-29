@@ -106,6 +106,11 @@ return [
     'select_handlebar' => 'Seleccionar a manubrio',
     'select_pedal' => 'Seleccionar a pedal',
     'select_saddle' => 'Seleccionar a sillin',
+    'Inventory' => 'Inventario',
+    'Bike update' => 'Actualizar bicicleta',
+    'Bike creation' => 'Crear bicicleta',
+    'Sucessfully created' => 'Creado exitosamente',
+    'Cart' => 'Carro',
 
     // user MESSAGES
 
