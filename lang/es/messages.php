@@ -106,6 +106,15 @@ return [
     'select_handlebar' => 'Seleccionar a manubrio',
     'select_pedal' => 'Seleccionar a pedal',
     'select_saddle' => 'Seleccionar a sillin',
+    'Inventory' => 'Inventario',
+    'Bike update' => 'Actualizar bicicleta',
+    'Bike creation' => 'Crear bicicleta',
+    'Sucessfully created' => 'Creado exitosamente',
+    'Cart' => 'Carro',
+    'name' => 'Nombre',
+    'image' => 'Imagen',
+    'options' => 'Opciones',
+    'bike_list' => 'Lista de Bicicletas',
 
     // user MESSAGES
 
@@ -117,5 +126,18 @@ return [
     'user_update' => 'Actualizar informacion',
     'user_update_info' => 'Actualizar informacion de usuario',
     'user_updated' => 'Usuario actualizado satisfactoriamente',
+
+    //Footer messages
+    'Usefull Links' => 'Enlaces útiles',
+    'Privacy Policy' => 'Política de privacidad',
+    'Terms and Conditions' => 'Términos y condiciones',
+    'Contact' => 'Contacto',
+    'Other sites' => 'Otros sitios',
+    'Bike Slice on Facebook' => 'Bike Slice en Facebook',
+    'Bike Slice on Twitter' => 'Bike Slice en Twitter',
+    'Bike Slice on Instagram' => 'Bike Slice en Instagram',
+    'Subscribe' => 'Suscríbete',
+    'Your email address' => 'Tu correo electrónico',
+    'All rights reserved' => 'Todos los derechos reservados',
 
 ];

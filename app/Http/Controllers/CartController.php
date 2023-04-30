@@ -25,7 +25,7 @@ class CartController extends Controller
             $viewData['total'] = $total;
         }
 
-        $viewData['title'] = 'Cart';
+        $viewData['title'] =  __('messages.Cart');
         $viewData['cartBikeData'] = $cartBikeData;
 
         return view('cart.index')->with('viewData', $viewData);

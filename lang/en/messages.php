@@ -109,6 +109,16 @@ return [
     'select_handlebar' => 'Select a handlebar',
     'select_pedal' => 'Select a pedal',
     'select_saddle' => 'Select a saddle',
+    'Inventory' => 'Inventory',
+    'Bike update' => 'Bike update',
+    'Bike creation' => 'Bike creation',
+    'Sucessfully created' => 'Sucessfully created',
+    'Cart' => 'Cart',
+    'name' => 'Name',
+    'image' => 'Image',
+    'options' => 'Options',
+    'bike_list' => 'Bike list',
+
 
     // user MESSAGES
 
@@ -120,5 +130,18 @@ return [
     'user_update' => 'Update info',
     'user_update_info' => 'Update users info',
     'user_updated' => 'User updated succesfully',
+
+    //Footer messages
+    'Usefull Links' => 'Usefull Links',
+    'Privacy Policy' => 'Privacy Policy',
+    'Terms and Conditions' => 'Terms and Conditions',
+    'Contact' => 'Contact',
+    'Other sites' => 'Other sites',
+    'Bike Slice on Facebook' => 'Bike Slice on Facebook',
+    'Bike Slice on Twitter' => 'Bike Slice on Twitter',
+    'Bike Slice on Instagram' => 'Bike Slice on Instagram',
+    'Subscribe' => 'Subscribe',
+    'Your email address' => 'Your email address',
+    'All rights reserved' => 'All rights reserved',
 
 ];

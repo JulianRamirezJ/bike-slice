@@ -13,3 +13,51 @@
     margin-top: 20px;
 }
 
+.bikes-container {
+    margin-top: 20px;
+}
+
+.bikes-container .card {
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.bikes-container .card:hover {
+    transform: scale(1.02);
+}
+
+.bikes-container .card img {
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.bikes-container .card-body {
+    text-align: center;
+}
+
+.bikes-container .card-title {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.bikes-container .card-text {
+    font-size: 18px;
+    color: #333;
+}
+
+.carousel-container {
+    margin-top: 50px;
+    max-height: 500px;
+}
+
+.carousel-inner img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.search-container {
+    margin-top: 50px;
+}
+

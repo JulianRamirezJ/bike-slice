@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        @if ($viewData["user_id"]!=0 && $viewData["user_id"]==$viewData["bike"]->getUser()->getId())
+        @if ($viewData["user_id"]!=0 && $viewData["user_id"]==$viewData["bike"]->getUser()->id)
             <div id="options_container" class="mt-5">
                 <form action="{{ route('user.bike.remove', ['id'=>$viewData['bike']->getId()])}}" method="post">
                     <button type="submit" class="btn bg-danger text-white" > {{ __('messages.bike_delete')}}</button>

@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('sectioncss')
-    <link href="{{ asset('/css/showAll.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/home.css') }}" rel="stylesheet" />
 @endsection
+
 @section('content')
 <div class="container">
     <div id="carouselExample" class="carousel slide carousel-container" data-bs-ride="carousel">
@@ -26,6 +27,9 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <div class="search-container">
         @livewire('bikes.search-bike')
+    </div>
 </div>
+
 @endsection

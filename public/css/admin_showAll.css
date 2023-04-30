@@ -1,0 +1,54 @@
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+.btn-container {
+  margin-top: 10px;
+}
+.table {
+  margin-top: 20px;
+}
+.table th {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+.table td {
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+.img-thumbnail {
+  max-width: 50px;
+  max-height: 50px;
+}
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.card-header {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-container button {
+  margin-left: 10px;
+}
+
+.table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+
+.card{
+  width: 83%;
+  margin: 0 auto;
+  float:right;
+}

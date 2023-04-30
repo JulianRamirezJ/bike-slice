@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts/admin')
 @section('title', $viewData['title'])
 @section('sectioncss')
     <link href="{{ asset('/css/create.css') }}" rel="stylesheet" />
