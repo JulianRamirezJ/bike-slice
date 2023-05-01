@@ -61,6 +61,8 @@ Route::middleware(['auth.role:user'])->group(function () {
     Route::get('/user/config/', 'App\Http\Controllers\User\UserController@config')->name('user.conf');
     Route::post('/user/config/update/', 'App\Http\Controllers\User\UserController@updateConfig')->name('user.update.conf');
     Route::post('/user/order/save', 'App\Http\Controllers\User\OrderController@save')->name("user.order.save");
+    Route::get('/user/order/', 'App\Http\Controllers\User\OrderController@showAll')->name("user.order.showAll");
+
 });
 
 //Auth routes

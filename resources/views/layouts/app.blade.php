@@ -38,6 +38,7 @@
             {{-- Links to user routes --}}
             <a class="nav-link text-white" href="{{ route('user.bike.showAll')}}">{{__('messages.nav.item.your_bikes')}}</a>
             <a class="nav-link text-white" href="{{ route('user.part.showall') }}">{{__('messages.nav.item.parts')}}</a>
+            <a class="nav-link text-white" href="{{ route('user.order.showAll') }}">{{__('messages.nav.order')}}</a>
             <a class="nav-link text-white" href="{{ route('user.conf') }}">{{__('messages.nav.item.user_config')}}</a>
           @endif
           <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">
@@ -78,13 +79,10 @@
         </ul>
       </div>
       <div class="col-md-4">
-        <h5>{{__('messages.Subscribe')}}</h5>
-        <form>
-          <div class="form-group">
-            <input type="email" class="form-control" placeholder="{{__('messages.Your email address')}}">
-          </div>
-          <button type="submit" class="btn btn-outline-light">{{__('messages.Subscribe')}}</button>
-        </form>
+        <h5>{{__('messages.Language')}}</h5>
+          <li><a href="{{ url('lang/en') }}">English</a></li>
+          <li><a href="{{ url('lang/es') }}">Español</a></li>
+          <li><a href="{{ url('lang/fr') }}">Français</a></li>
       </div>
     </div>
     <hr>

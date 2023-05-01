@@ -115,6 +115,9 @@ return [
     'image' => 'Imagen',
     'options' => 'Opciones',
     'bike_list' => 'Lista de Bicicletas',
+    'nav.order' => 'Mis órdenes',
+    'title_orders' => 'Mis órdenes',
+    'view_items' => 'Artículos en la orden',
 
     // user MESSAGES
 
