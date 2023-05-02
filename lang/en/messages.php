@@ -130,6 +130,9 @@ return [
     'user_update' => 'Update info',
     'user_update_info' => 'Update users info',
     'user_updated' => 'User updated succesfully',
+    'nav.order' => 'My Orders',
+    'title_orders' => 'My Orders',
+    'view_items' => 'Items in the order',
 
     //Footer messages
     'Usefull Links' => 'Usefull Links',
@@ -142,6 +145,7 @@ return [
     'Bike Slice on Instagram' => 'Bike Slice on Instagram',
     'Subscribe' => 'Subscribe',
     'Your email address' => 'Your email address',
-    'All rights reserved' => 'All rights reserved',
+    'All rights reserved' => 'All rights reserved', 
+    'Language' => 'Available Languages',
 
 ];

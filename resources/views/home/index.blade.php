@@ -9,13 +9,13 @@
     <div id="carouselExample" class="carousel slide carousel-container" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://cdnb.artstation.com/p/assets/images/images/038/132/269/large/rnj-krishna-sanjeev-jangid-bike-cycle-banner.jpg?1622254445" class="d-block w-100" alt="...">
+                <img src="{{ URL::asset('storage/logo.png') }}" class="d-block w-100 image" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://cdnb.artstation.com/p/assets/images/images/038/132/269/large/rnj-krishna-sanjeev-jangid-bike-cycle-banner.jpg?1622254445" class="d-block w-100" alt="...">
+                <img src="{{ URL::asset('storage/logo.png') }}" class="d-block w-100 image" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://cdnb.artstation.com/p/assets/images/images/038/132/269/large/rnj-krishna-sanjeev-jangid-bike-cycle-banner.jpg?1622254445" class="d-block w-100" alt="...">
+                <img src="{{ URL::asset('storage/logo.png') }}" class="d-block w-100 image" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

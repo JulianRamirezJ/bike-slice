@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class OrderController extends Controller
 {
@@ -70,5 +71,12 @@ class OrderController extends Controller
         $request->session()->forget('cart_bike_data');
 
         return back()->with('status', 'success');
+    }
+
+    public function showAll(): View
+    {   
+        $viewData['title'] = __('messages.title_orders');
+        $viewData['orders'] = Order::with('items.bike')->where('user_id', '=', Auth::id())->get();
+        return view('user.order.showAll')->with('viewData', $viewData);
     }
 }

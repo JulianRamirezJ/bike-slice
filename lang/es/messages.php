@@ -115,6 +115,9 @@ return [
     'image' => 'Imagen',
     'options' => 'Opciones',
     'bike_list' => 'Lista de Bicicletas',
+    'nav.order' => 'Mis órdenes',
+    'title_orders' => 'Mis órdenes',
+    'view_items' => 'Artículos en la orden',
 
     // user MESSAGES
 
@@ -139,5 +142,6 @@ return [
     'Subscribe' => 'Suscríbete',
     'Your email address' => 'Tu correo electrónico',
     'All rights reserved' => 'Todos los derechos reservados',
+    'Language' => 'Idiomas disponobles',
 
 ];

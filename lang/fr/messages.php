@@ -125,6 +125,10 @@ return [
     'user_updated' => 'Utilisateur mis à jour avec succès',
     'cart.balance.error' => "Vous n'avez pas suffisamment de fonds",
     'cart.success' => 'Achat réussi',
+    'nav.order' => 'Mes commandes',
+    'title_orders' => 'Mes commandes',
+    'view_items' => 'Articles de la commande',
+
     //Footer messages
     'Usefull Links' => 'Liens utiles',
     'Privacy Policy' => 'Politique de confidentialité',
@@ -137,4 +141,5 @@ return [
     'Subscribe' => 'S\'abonner',
     'Your email address' => 'Votre adresse e-mail',
     'All rights reserved' => 'Tous droits réservés',
+    'Language' => 'Langues disponibles'
 ];
