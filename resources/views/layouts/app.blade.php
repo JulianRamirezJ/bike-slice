@@ -80,9 +80,10 @@
       </div>
       <div class="col-md-4">
         <h5>{{__('messages.Language')}}</h5>
-          <li><a href="{{ url('lang/en') }}">English</a></li>
-          <li><a href="{{ url('lang/es') }}">Español</a></li>
-          <li><a href="{{ url('lang/fr') }}">Français</a></li>
+            <a class="dropdown-item" href="{{ url('locale/en') }}">English</a>
+            <a class="dropdown-item" href="{{ url('locale/es') }}">Español</a>
+            <a class="dropdown-item" href="{{ url('locale/fr') }}">Français</a>
+    </li>
       </div>
     </div>
     <hr>

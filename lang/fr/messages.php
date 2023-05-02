@@ -141,4 +141,5 @@ return [
     'Subscribe' => 'S\'abonner',
     'Your email address' => 'Votre adresse e-mail',
     'All rights reserved' => 'Tous droits réservés',
+    'Language' => 'Langues disponibles'
 ];

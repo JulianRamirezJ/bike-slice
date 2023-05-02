@@ -142,5 +142,6 @@ return [
     'Subscribe' => 'Suscríbete',
     'Your email address' => 'Tu correo electrónico',
     'All rights reserved' => 'Todos los derechos reservados',
+    'Language' => 'Idiomas disponobles',
 
 ];

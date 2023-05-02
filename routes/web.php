@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 //Public Routes
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 Route::get('/user/bike/show/{id}', 'App\Http\Controllers\User\BikeController@show')->name("user.bike.show");
@@ -20,6 +23,7 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.ind
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
 Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
 Route::get('/cart/removeAll', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+Route::get('set-locale/{locale}','App\Http\Controllers\LanguageController@switchLang')->middleware('check.locale')->name('locale.setting');
 
 
 //Admin Routes
@@ -65,5 +69,7 @@ Route::middleware(['auth.role:user'])->group(function () {
 
 });
 
-//Auth routes
+Route::get('locale/{locale}','App\Http\Controllers\LanguageController@switchLang')->name('locale');
+
+
 Auth::routes();

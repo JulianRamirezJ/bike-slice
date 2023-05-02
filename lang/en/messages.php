@@ -146,5 +146,6 @@ return [
     'Subscribe' => 'Subscribe',
     'Your email address' => 'Your email address',
     'All rights reserved' => 'All rights reserved', 
+    'Language' => 'Available Languages',
 
 ];
