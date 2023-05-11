@@ -12,6 +12,8 @@ class Assembly extends Model
      * $this->attributes['id'] - int - contains the Assembly PK
      * $this->attributes['created_at'] - string - contains date of creation
      * $this->attributes['updated_at '] - string - contains date of last modification
+     * $this->part - Part - contains the associated part
+     * $this->bike - Bike - contains the associated bike
      * $this->bike_id - Bike - contains the associated bike
      * $this->part_id - Part - contains the associated part
      */
@@ -39,11 +41,6 @@ class Assembly extends Model
 
     public function setBike(Bike $bike): void
     {
-        $this->bike = $bike;
-    }
-
-    public function setBikeId(Bike $bike): void
-    {
         $this->bike_id = $bike->getId();
     }
 
@@ -58,11 +55,6 @@ class Assembly extends Model
     }
 
     public function setPart(Part $part): void
-    {
-        $this->part = $part;
-    }
-
-    public function setPartId(Part $part): void
     {
         $this->part_id = $part->getId();
     }

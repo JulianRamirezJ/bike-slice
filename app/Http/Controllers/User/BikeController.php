@@ -64,7 +64,8 @@ class BikeController extends Controller
     public function saveUpdate(Request $request, string $id): RedirectResponse
     {
         Bike::validateUserUpdate($request);
-        $assemblies = Assembly::where('bike_id', $id)->get();
+        $bike = Bike::find($id);
+        $assemblies = $bike->getAssemblies();
         $parts = [$request['frame'], $request['wheel'], $request['saddle'], $request['chain'], $request['handlebar'], $request['pedal']];
         $price = 0;
         $stock = 10000;
@@ -84,15 +85,15 @@ class BikeController extends Controller
             $request['img'] = $request->file('image')->getClientOriginalName();
             Bike::where('id', $id)->update($request->only(['name', 'stock', 'price', 'share', 'type', 'brand', 'description', 'img']));
             foreach ($assemblies as $index => $assembly) {
-                $part = Part::where('id', $parts[$index])->get();
-                $assembly->setPartId($part[0]);
+                $part = Part::where('id', $parts[$index])->first();
+                $assembly->setPart($part);
                 $assembly->save();
             }
         } else {
             Bike::where('id', $id)->update($request->only(['name', 'stock', 'price', 'share', 'type', 'brand', 'description']));
             foreach ($assemblies as $index => $assembly) {
-                $part = Part::where('id', $parts[$index])->get();
-                $assembly->setPartId($part[0]);
+                $part = Part::where('id', $parts[$index])->first();
+                $assembly->setPart($part);
                 $assembly->save();
             }
         }
@@ -149,7 +150,6 @@ class BikeController extends Controller
             'user_id' => Auth::id(),
         ]);
         $id = $Bike->id;
-        //Create assembly for each part
         foreach ($parts as $part) {
             Assembly::create([
                 'bike_id' => $id,
