@@ -40,3 +40,9 @@
 a{
     color: black;
 }
+
+.container_reviews {
+    max-width: 800px;
+    width: calc(100% - 500px);
+    margin: auto;
+  }

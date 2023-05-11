@@ -104,11 +104,6 @@ class Part extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function getAdmin()
-    {
-        return $this->belongsTo(User::class);
-    }
-
     public static function validateCreation(Request $request)
     {
         $request->validate([
