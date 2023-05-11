@@ -66,6 +66,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getId(): string
+    {
+        return $this->attributes['id'];
+    }
+
     public function getRole(): string
     {
         return $this->attributes['role'];
