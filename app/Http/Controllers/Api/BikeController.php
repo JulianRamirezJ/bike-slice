@@ -13,7 +13,12 @@ class BikeController extends Controller
 {
     public function showAll()
     {
-        return Bike::all();
+        $bikes = Bike::all()->map(function ($bike) {
+            $bike->url = "http://bike-slice.shop/user/bike/show/".$bike->getId();
+            return $bike;
+        });
+        
+        return response()->json($bikes, 200, [], JSON_UNESCAPED_SLASHES);
     }
 
     public function show(string $id)
@@ -29,7 +34,12 @@ class BikeController extends Controller
             ->orderByDesc('average_score')
             ->limit($to)
             ->get();
+            
+        $bikes->map(function ($bike) {
+            $bike->url = "http://bike-slice.shop/user/bike/show/".$bike->getId();
+            return $bike;
+        });
 
-        return $bikes;
+        return response()->json($bikes, 200, [], JSON_UNESCAPED_SLASHES);
     }
 }
