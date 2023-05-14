@@ -68,6 +68,8 @@ return [
     'bike_public_yes' => 'Public : Oui',
     'bike_public_no' => 'Public : Non',
     'bike_description' => 'Description',
+    'bike_user_creator' =>'Créé par',
+    'bike_parts' =>'des soirées',
     'bike_delete' => 'Supprimer le vélo',
     'add_bike' => 'Ajouter un vélo',
     'bike_created_succesfully' => 'Le nouveau vélo a été créé avec succès',

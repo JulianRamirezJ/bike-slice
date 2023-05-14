@@ -7,7 +7,7 @@
                 <div class="card">
                     <img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="card-img-top" alt="{{ $bike->getName() }}">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $bike->getName() }}</h5>
+                        <h5 class="card-title nostyle">{{ $bike->getName() }}</h5>
                         <p class="card-text">{{ $bike->getPrice() }}</p>
                     </div>
                 </div>
