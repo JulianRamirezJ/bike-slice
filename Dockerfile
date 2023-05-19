@@ -11,9 +11,10 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-
+RUN composer require livewire/livewire
 RUN php artisan key:generate
 RUN php artisan migrate
 RUN chmod -R 777 storage
+RUN chmod -R 777 bootstrap
 RUN a2enmod rewrite
 RUN service apache2 restart
