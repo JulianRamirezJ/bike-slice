@@ -26,7 +26,6 @@ class Bike extends Model
      * $this->attributes['updated_at '] - string - contains date of last modification
      * $this->user - User - contains the associated user
      * $this->assemblies - Assembly[] - contains the associated assemblies
-     * $this->items - Item[] - contains the associated itemsss
      */
     protected $fillable = ['price', 'img', 'name', 'stock', 'share', 'type', 'brand', 'description', 'user_id'];
 
