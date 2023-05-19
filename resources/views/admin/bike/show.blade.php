@@ -45,13 +45,13 @@
             </a>
         </div>
     </div>
-    <div class="container mt-5">
+    <div class="container container_reviews mt-5">
         <h2>{{__('messages.Reviews')}}</h2>
         <hr>
             @foreach($viewData["bike"]->getReviews() as $review)
             <div class="row mt-3">
                 <div class="col-3">
-                    <p><strong>{{__('messages.User')}}:</strong> {{ $review->getUser()->name }}</p>
+                    <p><strong>{{__('messages.User')}}:</strong> {{ $review->getUser()->getName() }}</p>
                     <p><strong>{{__('messages.Date')}}:</strong> {{ $review->getCreatedAt() }}</p>
                 </div>
                 <div class="col-2">

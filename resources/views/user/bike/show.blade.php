@@ -67,7 +67,7 @@
             @foreach($viewData["bike"]->getReviews() as $review)
             <div class="row mt-3">
                 <div class="col-3">
-                    <p><strong>{{__('messages.User')}}:</strong> {{ $review->getUser()->name }}</p>
+                    <p><strong>{{__('messages.User')}}:</strong> {{ $review->getUser()->getName() }}</p>
                     <p><strong>{{__('messages.Date')}}:</strong> {{ $review->getCreatedAt() }}</p>
                 </div>
                 <div class="col-2">
@@ -77,7 +77,7 @@
                     <p><strong>{{__('messages.Description')}}:</strong> {{ $review->getDescription() }}</p>
                 </div>
                 <div class="col-2">
-                    @if ($review->getUser()->id == $viewData["user_id"])
+                    @if ($review->getUser()->getId() == $viewData["user_id"])
                     <form action="{{ route('user.review.delete', ['id'=> (int)$review->getId()]) }}" method="post">
                         <button type="submit" class="btn bg-danger text-white" >{{__('messages.Delete this review')}}</button>
                         @csrf

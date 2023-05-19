@@ -18,6 +18,7 @@ class Part extends Model
      * $this->attributes['type'] - string - contains the Part Type
      * $this->attributes['img'] - string - contains the Part Img
      * $this->attributes['brand'] - string - contains the Part Brand
+     * $this->assemblies - Assembly[] - contains the associated assemblies
      * $this->attributes['created_at'] - string - contains date of creation
      * $this->attributes['updated_at '] - string - contains date of last modification
      */
@@ -101,11 +102,6 @@ class Part extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
-    }
-
-    public function getAdmin()
-    {
-        return $this->belongsTo(User::class);
     }
 
     public static function validateCreation(Request $request)
