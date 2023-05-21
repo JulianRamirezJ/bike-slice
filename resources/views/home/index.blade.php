@@ -9,13 +9,13 @@
     <div id="carouselExample" class="carousel slide carousel-container" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ URL::asset('storage/logo.png') }}" class="d-block w-100 image" alt="...">
+                <img src="{{'https://storage.googleapis.com/project-bike/'.'Bi.jpg'.'?authuser=2'}}" class="d-block w-100 image" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="{{ URL::asset('storage/logo.png') }}" class="d-block w-100 image" alt="...">
+                <img src="{{'https://storage.googleapis.com/project-bike/'.'Bi.jpg'.'?authuser=2'}}" class="d-block w-100 image" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="{{ URL::asset('storage/logo.png') }}" class="d-block w-100 image" alt="...">
+                <img src="{{'https://storage.googleapis.com/project-bike/'.'Bi.jpg'.'?authuser=2'}}" class="d-block w-100 image" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

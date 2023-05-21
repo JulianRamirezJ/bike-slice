@@ -12,6 +12,7 @@ RUN composer install \
     --no-scripts \
     --prefer-dist
 RUN composer require livewire/livewire
+RUN composer require google/cloud-storage
 RUN php artisan key:generate
 RUN php artisan migrate
 RUN chmod -R 777 storage
