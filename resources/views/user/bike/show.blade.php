@@ -13,7 +13,7 @@
             <a class="btn btn-success my-4" href="{{ route('cart.add', ['id'=> $viewData["bike"]->getId() ]) }}">{{__('messages.bike.add_cart')}}</a>
         @endif
         <div id="show_info_container">
-            <img id="show_img" src="{{ URL::asset('storage/'.$viewData["bike"]->getImage()) }}"/>
+            <img id="show_img" src="{{'https://storage.googleapis.com/project-bike/'.$viewData['bike']->getImage().'?authuser=2'}}"/>
             <div id="show_info">
                 <p class="show_info_general">{{$viewData["bike"]->getName()}}</p>
                 <p class="show_info_general">{{__('messages.bike_stock')}} : {{$viewData["bike"]->getStock()}}</p>

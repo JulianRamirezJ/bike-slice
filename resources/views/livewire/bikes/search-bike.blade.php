@@ -5,7 +5,7 @@
         <div class="col-md-3">
             <a href="{{ route('user.bike.show', ['id'=>$bike->getId()]) }}" wire:key="bike-{{ $bike->getId() }}" class="card-link">
                 <div class="card">
-                    <img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="card-img-top" alt="{{ $bike->getName() }}">
+                    <img src="{{'https://storage.googleapis.com/project-bike/'.$bike->getImage().'?authuser=2'}}" class="card-img-top" alt="{{ $bike->getName() }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $bike->getName() }}</h5>
                         <p class="card-text">{{ $bike->getPrice() }}</p>
