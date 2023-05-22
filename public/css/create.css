@@ -98,3 +98,8 @@
     background-color: rgb(219, 67, 67);
     cursor: pointer;
 }
+
+#card-admin {
+    width: 80%;
+    float: right
+}

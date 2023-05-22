@@ -7,7 +7,6 @@
 @section('content')
 <div class="container">
     <h1>{{$weather}}</h1>
-    <h1>Waaaaaaaaow4</h1>
     <div id="carouselExample" class="carousel slide carousel-container" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">

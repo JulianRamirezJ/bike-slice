@@ -69,6 +69,8 @@ return [
     'bike_public_yes' => 'Public: Yes',
     'bike_public_no' => 'Public: No',
     'bike_description' => 'Description',
+    'bike_user_creator' =>'Created by',
+    'bike_parts' =>'Parts',
     'bike_delete' => 'Delete Bike',
     'add_bike' => 'Add bike',
     'bike_created_succesfully' => 'The new bike has been created successfully',
