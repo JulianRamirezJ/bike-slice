@@ -1,3 +1,27 @@
 nav{
     background-color: antiquewhite;
 }
+
+.weather-api{
+    color: white;
+}
+
+#time{
+    font-size: 10px;
+    padding-top: 22px;
+    margin-left: 8px;
+}
+
+.weather-icon{
+    color: #ffffff; 
+    font-size:25px;
+    margin-left:10px;
+}
+
+.weather-container{
+    border: solid white;
+    padding: 0px 5px 0px 5px;
+    border-radius: 15px;
+    height: fit-content;
+    border-width: 1px;
+}
