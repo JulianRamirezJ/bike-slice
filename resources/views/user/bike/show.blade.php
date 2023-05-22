@@ -14,7 +14,7 @@
         @endif
 
         <div id="show_info_container">
-            <img id="show_img" src="{{ URL::asset('storage/'.$viewData["bike"]->getImage()) }}"/>
+            <img id="show_img" src="{{'https://storage.googleapis.com/project-bike/'.$viewData['bike']->getImage().'?authuser=2'}}"/>
             <div id="show_info" class="card"> 
                 <h1 class="mt-2">{{$viewData["bike"]->getName()}}</h1>
                 <h3 class="mt-2">${{$viewData["bike"]->getPrice()}}</h3>

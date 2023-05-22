@@ -36,7 +36,7 @@
             <td>{{ $bike->getBrand() }}</td>
             <td>{{ $bike->getType() }}</td>
             <td>{{ $bike->getStock() }}</td>
-            <td><img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="img-thumbnail" alt="{{ $bike->getName() }}" style="max-height: 50px;"></td>
+            <td><img src="{{'https://storage.googleapis.com/project-bike/'.$bike->getImage().'?authuser=2' }}" class="img-thumbnail" alt="{{ $bike->getName() }}" style="max-height: 50px;"></td>
             <td>
               <div class="btn-container">
                 <a href="{{ route('admin.bike.show', ['id'=>$bike->getId()]) }}" class="btn btn-primary mx-2">
