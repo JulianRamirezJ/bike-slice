@@ -4,9 +4,7 @@
     <link href="{{ asset('/css/show.css') }}" rel="stylesheet" />
 @endsection
 @section('content')
-<div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+            <div class="card" id="card-admin">
                 <div class="card-header">{{__('messages.update_part')}}</div>
                 <div class="card-body">
                     @if($errors->any())
@@ -21,11 +19,6 @@
                         {{ __('messages.updated_part') }}
                     </div>
                     @endif
-                    <form method="POST" enctype="multipart/form-data" action="{{ route('admin.part.remove', ['id'=>$viewData['part']->getId()])}}">
-                        <button type="submit" class="btn bg-danger text-white" > {{ __('messages.delete_part')}}</button>
-                        @csrf
-                        @method('delete')
-                    </form>
                     <form method="POST" action="{{ route('admin.part.update', ['id'=> $viewData["part"]->getId()]) }}"
                         enctype="multipart/form-data">
                         @csrf
@@ -65,6 +58,4 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
 @endsection

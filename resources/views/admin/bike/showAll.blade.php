@@ -39,16 +39,16 @@
             <td><img src="{{ URL::asset('storage/'.$bike->getImage()) }}" class="img-thumbnail" alt="{{ $bike->getName() }}" style="max-height: 50px;"></td>
             <td>
               <div class="btn-container">
-                <a href="{{ route('admin.bike.show', ['id'=>$bike->getId()]) }}" class="btn btn-primary">
+                <a href="{{ route('admin.bike.show', ['id'=>$bike->getId()]) }}" class="btn btn-primary mx-2">
                   <i class="fa fa-eye fa-lg"></i>
                 </a>
-                <a href="{{ route('admin.bike.update', ['id'=>$bike->getId()]) }}" class="btn btn-warning">
+                <a href="{{ route('admin.bike.update', ['id'=>$bike->getId()]) }}" class="btn btn-warning mx-2">
                   <i class="fas fa-edit fa-lg"></i>
                 </a>
                 <form action="{{ route('admin.bike.remove', ['id'=>$bike->getId()])}}" method="post">
                   @csrf
                   @method('delete')
-                  <button type="submit" class="btn btn-danger">
+                  <button type="submit" class="btn btn-danger mx-2">
                     <i class="fa fa-trash fa-lg"></i>
                   </button>
                 </form>            
