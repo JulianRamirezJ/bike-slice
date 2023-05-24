@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container d-flex flex-wrap justify-content-center">
-    @foreach($computers as $computer)
+    @foreach($viewData["computers"] as $computer)
         <div class="card m-2" style="width: 16rem;">
             <img src="{{$computer["image_url"]}}" class="card-img-top" alt="...">
             <div class="card-body">

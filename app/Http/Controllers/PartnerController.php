@@ -9,8 +9,10 @@ class PartnerController extends Controller
 {
     public function index(): View
     {
+        $viewData = [];
         $neotechApi = new NeotechApi();
         $response = $neotechApi->getNeotechComputers();
-        return view('partner.index')->with('computers', ($response));
+        $viewData["computers"] = $response; 
+        return view('partner.index')->with('viewData', ($viewData));
     }
 }
