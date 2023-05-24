@@ -17,6 +17,7 @@ return [
     'nav.item.bikes' => 'Bicicletas',
     'nav.item.parts' => 'Partes',
     'nav.item.cart' => 'Carrito',
+    'nav.item.partner' => 'Aliado',
     'nav.item.your_bikes' => 'Tus bicicletas',
     'nav.item.user_config' => 'Configuración Usuario',
     'nav.item.logout' => 'Cerrar sesión',

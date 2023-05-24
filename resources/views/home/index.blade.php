@@ -6,7 +6,8 @@
 
 @section('content')
 <div class="container">
-    <div id="carouselExample" class="carousel slide carousel-container" data-bs-ride="carousel">
+    <h1>{{$weather}}</h1>
+    {{-- <div id="carouselExample" class="carousel slide carousel-container" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{'https://storage.googleapis.com/project-bike/'.'Bi.jpg'.'?authuser=2'}}" class="d-block w-100 image" alt="...">
@@ -26,7 +27,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> --}}
     <div class="search-container">
         @livewire('bikes.search-bike')
     </div>

@@ -18,6 +18,7 @@ return [
     'nav.item.bikes' => 'Vélos',
     'nav.item.parts' => 'Pièces',
     'nav.item.cart' => 'Panier',
+    'nav.item.partner' => 'Allié',
     'nav.item.your_bikes' => 'Vos vélos',
     'nav.item.user_config' => 'Configuration utilisateur',
     'nav.item.logout' => 'Se déconnecter',

@@ -24,6 +24,8 @@ Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("c
 Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
 Route::get('/cart/removeAll', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 Route::get('set-locale/{locale}','App\Http\Controllers\LanguageController@switchLang')->middleware('check.locale')->name('locale.setting');
+Route::get('/partner', 'App\Http\Controllers\PartnerController@index')->name("partner.index");
+
 
 
 //Admin Routes

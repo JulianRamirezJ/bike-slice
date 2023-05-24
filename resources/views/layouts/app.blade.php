@@ -44,6 +44,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto">
         <a class="nav-link text-white" href="{{ route('cart.index') }}">{{__('messages.nav.item.cart')}}</a>
+        <a class="nav-link text-white" href="{{ route('partner.index') }}">{{__('messages.nav.item.partner')}}</a>
         @guest
           <a class="nav-link text-white" href="{{ route('login') }}">{{__('messages.nav.item.login')}}</a>
           <a class="nav-link text-white" href="{{ route('register') }}">{{__('messages.nav.item.signup')}}</a>

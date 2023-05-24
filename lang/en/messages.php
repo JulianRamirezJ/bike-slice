@@ -18,6 +18,7 @@ return [
     'nav.item.bikes' => 'Bikes',
     'nav.item.parts' => 'Parts',
     'nav.item.cart' => 'Cart',
+    'nav.item.partner' => 'Partner',
     'nav.item.your_bikes' => 'Your Bikes',
     'nav.item.user_config' => 'User Config',
     'nav.item.logout' => 'LogOut',
