@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Interfaces\ImageStorage;
 use App\Models\Part;
+use Illuminate\Http\JsonResponse;
 
 
 class PartController extends Controller
 {
-    public function showAll()
+    public function showAll():JsonResponse
     {
-        return Part::all();
+        return response()->json(Part::all());
     }
 
-    public function show(string $id)
+    public function show(string $id):JsonResponse
     {
-        return Part::find($id);
+        return response()->json(Part::find($id));
     }
 }

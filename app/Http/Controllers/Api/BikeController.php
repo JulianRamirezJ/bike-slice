@@ -3,15 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Interfaces\ImageStorage;
 use App\Models\Bike;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
-
-use App\Models\Review;
 
 class BikeController extends Controller
 {
-    public function showAll()
+    public function showAll():JsonResponse
     {
         $bikes = Bike::all()->map(function ($bike) {
             $bike->url = "http://bike-slice.shop/user/bike/show/".$bike->getId();
@@ -21,12 +19,12 @@ class BikeController extends Controller
         return response()->json($bikes, 200, [], JSON_UNESCAPED_SLASHES);
     }
 
-    public function show(string $id)
+    public function show(string $id):JsonResponse
     {
-        return Bike::find($id);
+        return response()->json(Bike::find($id));
     }
 
-    public function showTop(int $to)
+    public function showTop(int $to):JsonResponse
     {
         $bikes = Bike::select('bikes.*', DB::raw('AVG(reviews.stars) as average_score'))
             ->join('reviews', 'reviews.bike_id', '=', 'bikes.id')
