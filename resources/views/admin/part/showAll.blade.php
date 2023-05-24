@@ -34,7 +34,7 @@
             <td>{{ $part->getBrand() }}</td>
             <td>{{ $part->getType() }}</td>
             <td>{{ $part->getStock() }}</td>
-            <td><img src="{{ URL::asset('storage/'.$part->getImage()) }}" class="img-thumbnail" alt="{{ $part->getName() }}" style="max-height: 50px;"></td>
+            <td><img src="{{'https://storage.googleapis.com/project-bike/'.$part->getImage().'?authuser=2' }}" class="img-thumbnail" alt="{{ $part->getName() }}" style="max-height: 50px;"></td>
             <td>
               <div class="btn-container">
                 <a href="{{ route('admin.part.show', ['id'=>$part->getId()]) }}" class="btn btn-primary">
