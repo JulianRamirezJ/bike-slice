@@ -18,24 +18,26 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ route('home.index') }}">{{ __('messages.bike_slice') }}</a>
-    @if(array_key_exists('temperature', $viewData))
-      <div class="d-flex align-items-center weather-container">
-        <p class="weather-api me-auto w-auto m-auto">{{$viewData['temperature']}}&deg</p>
-        <p id="time" class="weather-api align-baseline">{{$viewData['time']}}</p>
-        @if($viewData['weather'] == 0)
-          @if($viewData['day'] == 1)
-            <i class="fa-sharp fa-solid fa-sun weather-icon"></i>
+    @if(isset($viewData))
+      @if(array_key_exists('temperature', $viewData))
+        <div class="d-flex align-items-center weather-container">
+          <p class="weather-api me-auto w-auto m-auto">{{$viewData['temperature']}}&deg</p>
+          <p id="time" class="weather-api align-baseline">{{$viewData['time']}}</p>
+          @if($viewData['weather'] == 0)
+            @if($viewData['day'] == 1)
+              <i class="fa-sharp fa-solid fa-sun weather-icon"></i>
+            @else
+              <i class="fa-solid fa-moon weather-icon"></i>
+            @endif
+          @elseif($viewData['weather'] < 55)
+            <i class="fa-solid fa-cloud weather-icon"></i>
+          @elseif($viewData['weather'] < 84)
+            <i class="fa-solid fa-cloud-rain weather-icon"></i>
           @else
-            <i class="fa-solid fa-moon weather-icon"></i>
+            <i class="fa-solid fa-cloud-bolt weather-icon"></i>
           @endif
-        @elseif($viewData['weather'] < 55)
-          <i class="fa-solid fa-cloud weather-icon"></i>
-        @elseif($viewData['weather'] < 84)
-          <i class="fa-solid fa-cloud-rain weather-icon"></i>
-        @else
-          <i class="fa-solid fa-cloud-bolt weather-icon"></i>
-        @endif
-      </div>
+        </div>
+      @endif
     @endif
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
