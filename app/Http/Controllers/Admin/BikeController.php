@@ -81,7 +81,7 @@ class BikeController extends Controller
 
     public function create(): View
     {
-        $viewData['title'] = _('messages.Bike creation');
+        $viewData['title'] = __('messages.Bike creation');
 
         return view('admin.bike.create')->with('viewData', $viewData);
     }
